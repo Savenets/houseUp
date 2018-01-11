@@ -1,0 +1,17 @@
+node_modules
+.vscode
+.DS_Store
+.env
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.idea
+.stylelintcache
+**/build/*
+**/coverage/*
+docker-compose.override.yml
+*.swp
+*.swo
+api/docker/mysql/db
+package-lock.json
+webstorm.webpack.config.js
