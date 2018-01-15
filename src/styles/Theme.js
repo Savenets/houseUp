@@ -34,14 +34,7 @@ import {
   evenRowBackground,
   rowBorder,
   tableDefaultText,
-} from 'Member/styles/colors.css';
-
-import {
-  stepperBackground,
-  stepperIcon,
-  stepperInactiveIcon,
-  stepperLabel,
-} from 'Common/styles/componentColors.css';
+} from './colors.css';
 
 export default getMuiTheme({
   fontFamily: 'MuseoSansRounded',
@@ -101,13 +94,6 @@ export default getMuiTheme({
     textColor: datePickerText,
     selectColor: datePickerSelectBackground,
     selectTextColor: datePickerSelectText,
-  },
-  stepper: {
-    backgroundColor: stepperBackground,
-    iconColor: stepperIcon,
-    inactiveIconColor: stepperInactiveIcon,
-    textColor: stepperLabel,
-    disabledTextColor: stepperLabel,
   },
   tabs: {
     backgroundColor: tabsBackground,

@@ -6,8 +6,8 @@ import _ from 'lodash';
 export default (initialState = {}, additionalMiddlewares = []) => {
   // It's application scope reducers and sagas, depends on webpack entry point
 
-  const reducers = require('reducers').default;
-  const sagas = require('saga').default;
+  const reducers = require('../reducers').default;
+  const sagas = require('../saga').default;
 
   const sagaMiddleware = createSagaMiddleware();
 

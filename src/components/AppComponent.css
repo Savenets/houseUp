@@ -1,4 +1,4 @@
-@value textPrimary from "./styles/componentColors.css";
+@value textPrimary from "../styles/colors.css";
 
 .app {
   color: textPrimary;

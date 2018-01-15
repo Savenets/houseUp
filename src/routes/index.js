@@ -7,27 +7,24 @@ import createHistory from 'history/createBrowserHistory';
 import createStore from '../store';
 
 
-import LayoutContainer from 'Common/containers/LayoutContainer';
+import Layout from '../components/Layout';
 
 import Theme from '../styles/Theme';
 import Home from './Home';
-//mport NotFound from './NotFound';
+//import NotFound from './NotFound';
 
 const history = createHistory();
 const router = routerMiddleware(history);
 
 export default (
   <Provider store={createStore({}, [ router ])}>
-    <LayoutContainer theme={Theme}>
-      <AccountCheckContainer>
-        <ConnectedRouter history={history}>
-          <Switch>
-            <Route path="/" component={Home} />
-           {/* <Route component={NotFound} />*/}
-          </Switch>
-        </ConnectedRouter>
-      </AccountCheckContainer>
-      <ConfirmContainer />
-    </LayoutContainer>
+    <Layout theme={Theme}>
+      <ConnectedRouter history={history}>
+        <Switch>
+          <Route path="/" component={Home} />
+          {/* <Route component={NotFound} />*/}
+        </Switch>
+      </ConnectedRouter>
+    </Layout>
   </Provider>
 );

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import 'Common/styles/global.css';
+import '../styles/global.css';
 import styles from './AppComponent.css';
 
 const AppComponent = ({ children }) => (
