@@ -1,0 +1,180 @@
+@value na: "transparent";
+@value white: #fff;
+@value blue: #00254f;
+@value cyan: #00cdeb;
+@value cyanDarken-1: #00acc1;
+@value green: #00c850;
+@value greenLighten-1: #e0f8ea;
+@value red: #ff3232;
+@value yellow: #ff0;
+
+/* Gray Colors */
+@value grayLighten-9: #eeeff0;
+@value grayLighten-8: #edeff0;
+@value grayLighten-7: #f0f1f1;
+@value grayLighten-6: #fefefe;
+@value grayLighten-5: #fafafa;
+@value grayLighten-4: #ececec;
+@value grayLighten-3: #e9e9e9;
+@value grayLighten-2: #e0e0e0;
+@value grayLighten-1: #d2d2d2;
+@value gray #9e9e9e;
+@value grayDarken-1: #9e9e9e;
+@value grayDarken-2: #666666;
+@value grayDarken-3: #212121;
+
+/* Text */
+@value accentText: blue;
+@value accentText2: green;
+@value accentText3: cyan;
+@value defaultText: grayDarken-2;
+@value primaryText: gray;
+@value secondaryText: grayDarken-3;
+@value link: cyanDarken-1;
+@value textAccentSelection: yellow;
+@value blackText: grayDarken-3;
+@value dangerText: red;
+
+/* Logo */
+@value logoColor: blue;
+
+/* Header */
+@value headerBackground: grayLighten-4;
+@value headerText: accentText;
+
+/* AppBar */
+@value appBarBackground: grayLighten-4;
+@value appBarText: accentText;
+
+/* Footer */
+@value footerBackground: white;
+@value footerText: accentText;
+@value footerSecondary: grayLighten-3;
+
+/* Navigation */
+@value navigationBackground: white;
+@value navigationItemBackground: white;
+@value navigationItemText: secondaryText;
+@value navigationItemIcon: grayDarken-2;
+@value navigationItemActiveBackground: cyan;
+@value navigationItemActiveText: white;
+@value navigationItemActiveIcon: white;
+@value mobileNavigationItemText: accentText;
+@value mobileNavigationItemIcon: accentText;
+@value footerNavigationItemBackground: na;
+@value footerNavigationItemText: cyan;
+@value footerNavigationItemActiveBackground: na;
+@value footerNavigationItemActiveText: accentText3;
+
+/* Body */
+@value bodyBackground: grayLighten-5;
+@value bodyGradientStart: white;
+@value bodyGradientEnd: grayLighten-9;
+
+/* Modal */
+@value modalBackground: grayLighten-4;
+@value modalText: accentText;
+
+/* Borders, Controls */
+@value border: grayLighten-2;
+@value divider: grayLighten-2;
+@value sliderControlInactive: grayLighten-2;
+@value sliderControlActive: grayDarken-2;
+
+/* Buttons */
+
+/* Raised Primary */
+@value raisedButtonPrimaryBackground: green;
+@value raisedButtonPrimaryText: white;
+@value raisedButtonPrimaryDisabledBackground: grayLighten-2;
+@value raisedButtonPrimaryDisabledText: grayDarken-1;
+
+/* Raised Secondary */
+@value raisedButtonSecondaryBackground: blue;
+@value raisedButtonSecondaryText: white;
+@value raisedButtonSecondaryIcon: white;
+
+/* Raised Default */
+@value raisedButtonDefaultBackground: grayLighten-5;
+@value raisedButtonDefaultText: defaultText;
+@value raisedButtonDefaultBorder: grayLighten-2;
+
+/* Flat Primary */
+@value flatButtonPrimaryBackground: na;
+@value flatButtonPrimaryText: accentText2;
+
+/* Flat Secondary */
+@value flatButtonSecondaryBackground: na;
+@value flatButtonSecondaryText: accentText;
+
+/* Flat Default */
+@value flatButtonDefaultText: grayDarken-2;
+
+/* Other Buttons */
+@value dangerButtonText: red;
+@value activeButtonBackground: green;
+
+/* Text Field */
+@value textFieldText: grayDarken-3;
+@value textFieldHint: primaryText;
+@value textFieldFloatingLabel: defaultText;
+@value textFieldError: red;
+@value textFieldFocus: accentText2;
+@value textFieldBackground: na;
+@value textFieldBorder: border;
+
+/* Checkbox */
+@value checkboxBorder: grayDarken-2;
+@value checkboxChecked: green;
+@value checkboxLabel: defaultText;
+
+/* Radio Button */
+@value radioButtonBorder: grayDarken-2;
+@value radioButtonChecked: green;
+@value checkboxLabel: defaultText;
+
+/* Card */
+@value cardHeaderBackground: blue;
+@value cardHeaderText: white;
+@value cardHeaderAccent: cyan;
+
+/* Brand Colors */
+@value twitterBrandColor: #1da1f2;
+@value facebookBrandColor: #3b5998;
+@value googleBrandColor: #dc4e41;
+
+/* Messages */
+@value readMessageBackground: grayLighten-5;
+@value unreadMessagesBackground: white;
+@value selectedMessageBackground: greenLighten-1;
+@value messagesNotificationBackground: greenLighten-1;
+
+/* Table */
+@value tableBackground: white;
+@value evenRowBackground: grayLighten-5;
+@value oddRowBackground: white;
+@value rowBorder: border;
+@value tableText: blackText;
+@value tableDefaultText: grayDarken-2;
+@value tableAccentText: accentText;
+@value tableAccentText1: accentText3;
+
+/* CheckMark List */
+@value checkMarkCheckedIcon: cyan;
+@value checkMarkNotCheckedIcon: grayDarken-2;
+@value checkMarkText: defaultText;
+
+/* Date Picker */
+@value datePickerBackground: grayLighten-4;
+@value datePickerText: blue;
+@value datePickerSelectBackground: grayLighten-4;
+@value datePickerSelectText: blue;
+
+/* Paper */
+@value paperBackground: white;
+
+/* Tabs */
+@value tabsPaneBackground: blue;
+@value tabsPaneText: white;
+@value tabsPaneBorder: cyan;
+@value paneActiveButtonBackground: cyan;

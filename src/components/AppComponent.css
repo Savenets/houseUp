@@ -1,0 +1,5 @@
+@value textPrimary from "./styles/componentColors.css";
+
+.app {
+  color: textPrimary;
+}
