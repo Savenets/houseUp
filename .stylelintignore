@@ -1,0 +1,7 @@
+node_modules/*
+build/*
+flow-typed/*
+**/build/*
+**/__tests__/*
+**/config/*
+**/coverage/

@@ -1,0 +1,9 @@
+**/node_modules/*
+build/*
+**/build/*
+**/coverage/*
+**/config/*
+**/*.stories.js
+
+# API has own eslint
+api/**
