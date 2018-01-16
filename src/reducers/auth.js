@@ -1,24 +1,40 @@
-import { pick } from 'lodash';
-
-//import { AuthActionTypes } from 'Common/actions/auth';
-//import { AccountActionTypes } from 'Common/actions/account';
-
 const initialState = {
-  session: null,
-  isAuthStatusChecked: false,
-  isAuthenticated: false,
+  auth: {
+    status: 'ANONYMOUS',
+    email: null,
+    displayName: null,
+    photoURL: null,
+    uid: null
+  },
 };
 
-export default (state = initialState, action) => {
-  switch (action.type) {
-    case `hello::SUCCESS`: {
-      const isAuthStatusChecked = true;
-      const isAuthenticated = true;
-      return { ...state, isAuthStatusChecked, isAuthenticated };
-    }
-
-    default: {
+export default function authReducer(state = initialState.auth, action) {
+  switch(action.type) {
+    case 'ATTEMPTING_LOGIN':
+      return {
+        status: 'AWAITING_AUTH_RESPONSE',
+        email: null,
+        displayName: null,
+        photoURL: null,
+        uid: null
+      };
+    case 'SIGN_OUT':
+      return {
+        status: 'ANONYMOUS',
+        email: null,
+        displayName: null,
+        photoURL: null,
+        uid: null
+      };
+    case 'SIGN_IN':
+      return {
+        status: 'SIGNED_IN',
+        email: action.email,
+        displayName: action.displayName,
+        photoURL: action.photoURL,
+        uid: action.uid
+      };
+    default:
       return state;
-    }
   }
-};
+}

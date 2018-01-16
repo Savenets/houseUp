@@ -1,0 +1,19 @@
+.loginWrapper {
+  padding: 24px;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.login {
+  text-transform: uppercase;
+}
+
+.loginContainer {
+  max-width: 344px;
+  width: 100%;
+  padding: 24px;
+}
