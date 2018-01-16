@@ -1,0 +1,20 @@
+@value accentText from "../../styles/colors.css";
+@value headline, subheading from "../../styles/typography.css";
+
+
+.title {
+  composes: headline;
+  color: accentText;
+}
+
+.homeContainer {
+  text-align: center;
+}
+
+.list {
+  composes: subheading;
+  list-style: decimal !important;
+  list-style-position: inside !important;
+  text-align: justify;
+  padding: 16px;
+}

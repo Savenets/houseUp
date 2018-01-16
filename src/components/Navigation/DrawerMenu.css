@@ -1,0 +1,14 @@
+@value accentText from "../../styles/colors.css";
+@value subheading from "../../styles/typography.css";
+
+.drawerMenu {
+  display: flex;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  color: accentText;
+  composes: subheading;
+}

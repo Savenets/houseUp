@@ -1,0 +1,10 @@
+/*
+   I cant use this variables in media query.
+   I would like to use it in JS and have sizes in one file.
+*/
+@value LARGE: 1025;
+@value MEDIUM: 768;
+@value SMALL: 767;
+@value bp-large: (min-width: 1025px);
+@value bp-medium: (max-width: 1024) and (min-width: 768px);
+@value bp-small: (max-width: 767px);

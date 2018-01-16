@@ -1,0 +1,6 @@
+@value footerNavigationItemText from "../../styles/colors.css";
+
+.footerWrapper {
+  text-align: center;
+  background-color: footerNavigationItemText;
+}

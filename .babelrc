@@ -6,6 +6,7 @@
   ],
   "plugins": [
     "syntax-dynamic-import",
+    "transform-export-extensions",
     ["transform-runtime", {
       "polyfill": false,
       "regenerator": true
