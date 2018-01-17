@@ -11,6 +11,7 @@ import Layout from '../components/Layout';
 import Theme from '../styles/Theme';
 import Home from './Home';
 import Login from './Auth/Login';
+import Signup from './Auth/Signup';
 //import NotFound from './NotFound';
 
 const history = createHistory();
@@ -23,6 +24,7 @@ export default (
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
 
           {/* <Route component={NotFound} />*/}
         </Switch>

@@ -1,3 +1,5 @@
+import { AuthActionTypes } from '../actions/auth';
+
 const initialState = {
   auth: {
     status: 'ANONYMOUS',
@@ -10,7 +12,8 @@ const initialState = {
 
 export default function authReducer(state = initialState.auth, action) {
   switch(action.type) {
-    case 'ATTEMPTING_LOGIN':
+    case AuthActionTypes.awaitingAuthResponse:
+      alert("Awaiting auth response");
       return {
         status: 'AWAITING_AUTH_RESPONSE',
         email: null,
@@ -18,7 +21,8 @@ export default function authReducer(state = initialState.auth, action) {
         photoURL: null,
         uid: null
       };
-    case 'SIGN_OUT':
+    case AuthActionTypes.authSignOut:
+      alert('auth sign out');
       return {
         status: 'ANONYMOUS',
         email: null,
@@ -26,7 +30,8 @@ export default function authReducer(state = initialState.auth, action) {
         photoURL: null,
         uid: null
       };
-    case 'SIGN_IN':
+    case AuthActionTypes.authSignIn:
+      alert("auth sigi in");
       return {
         status: 'SIGNED_IN',
         email: action.email,

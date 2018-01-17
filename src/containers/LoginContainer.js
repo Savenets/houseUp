@@ -9,7 +9,7 @@ const mapStateToProps = ({ auth }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    signIn() { dispatch(signIn()); },
+    signIn() { console.log('Hello'); dispatch(signIn()); },
     signOut() { dispatch(signOut()); }
   };
 };

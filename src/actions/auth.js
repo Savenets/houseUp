@@ -1,11 +1,28 @@
 import pick from 'lodash/pick';
 import { auth, provider, database } from '../api/firebase';
 
+
+export const ReportsActionTypes = {
+  findDentistRevenueChart: 'REPORTS_ACTION_TYPES::FIND:DENTIST:REVENUE:CHART',
+  findKleerRevenueChart: 'REPORTS_ACTION_TYPES::FIND:KLEER:REVENUE:CHART',
+  findMembersAddedData: 'REPORTS_ACTION_TYPES::FIND:MEMBERS:ADDED',
+  findPlansChartData: 'REPORTS_ACTION_TYPES::FIND:PLANS:CHART',
+  findOverallTotals: 'REPORTS_ACTION_TYPES::FIND:OVERALL:TOTALS',
+  findPracticeCancellationChart: 'REPORTS_ACTION_TYPES::FIND:PRACTICE:CANCELLATION:CHART',
+  findDentistDashboardTotals: 'REPORTS_ACTION_TYPES::FIND:DENTIST:DASHBOARD:TOTALS',
+};
+
+export const AuthActionTypes = {
+  awaitingAuthResponse: 'AWAITING:AUTH:RESPONSE',
+  authSignIn: 'AUTH::SIGNIN',
+  authSignOut: 'AUTH::SIGNOUT',
+};
+
 export const signIn = () => {
   auth.signInWithPopup(provider);
 
   return {
-    type: 'AWAITING_AUTH_RESPONSE'
+    type: AuthActionTypes.awaitingAuthResponse
   };
 };
 
@@ -13,13 +30,13 @@ export const signOut = () => {
   auth.signOut();
 
   return {
-    type: 'AWAITING_AUTH_RESPONSE'
+    type: AuthActionTypes.awaitingAuthResponse
   };
 };
 
 export const signedIn = user => {
   return {
-    type: 'SIGN_IN',
+    type: AuthActionTypes.authSignIn,
     displayName: user.displayName,
     email: user.email,
     uid: user.uid,
@@ -29,7 +46,7 @@ export const signedIn = user => {
 
 export const signedOut = () => {
   return {
-    type: 'SIGN_OUT',
+    type: AuthActionTypes.authSignOut,
     email: null,
     displayName: null,
     photoURL: null,

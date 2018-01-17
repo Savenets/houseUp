@@ -5,7 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 import { loginWrapper, login, loginContainer } from './Login.css';
 
-const Login = ({ signIn }) => {
+const Login = ({ signIn, signOut }) => {
   return (
     <div className={loginWrapper}>
       <Paper className={loginContainer} zDepth={4} rounded={false}>
@@ -15,6 +15,13 @@ const Login = ({ signIn }) => {
           primary
           onClick={signIn}
         />
+
+        <RaisedButton
+          label="sign out"
+          primary
+          onClick={signOut}
+        />
+
       </Paper>
     </div>
   );
@@ -22,6 +29,7 @@ const Login = ({ signIn }) => {
 
 Login.propTypes = {
   signIn: PropTypes.func.isRequired,
+  signOut: PropTypes.func.isRequired,
 };
 
 export default Login;
