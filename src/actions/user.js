@@ -1,3 +1,15 @@
+
+export const UserActionTypes = {
+  register: 'User::REGISTER',
+};
+
+export default {
+  register: payload => ({ type: UserActionTypes.register, payload }),
+};
+
+
+
+/*
 import { database } from '../../api/firebase';
 
 const usersRef = database.ref('users');
@@ -18,3 +30,4 @@ export const startListeningForUsers = () => {
     });
   };
 };
+*/

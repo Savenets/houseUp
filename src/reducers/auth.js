@@ -1,16 +1,15 @@
 import { AuthActionTypes } from '../actions/auth';
 
 const initialState = {
-  auth: {
     status: 'ANONYMOUS',
     email: null,
     displayName: null,
     photoURL: null,
-    uid: null
-  },
+    uid: null,
+    error: null,
 };
 
-export default function authReducer(state = initialState.auth, action) {
+export default function authReducer(state = initialState, action) {
   switch(action.type) {
     case AuthActionTypes.awaitingAuthResponse:
       alert("Awaiting auth response");
@@ -39,6 +38,9 @@ export default function authReducer(state = initialState.auth, action) {
         photoURL: action.photoURL,
         uid: action.uid
       };
+    case AuthActionTypes.authError:
+      console.log('reducer auth error');
+      return {...state, error: action.error };
     default:
       return state;
   }

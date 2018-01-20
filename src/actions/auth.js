@@ -1,3 +1,18 @@
+export const AuthActionTypes = {
+  awaitingAuthResponse: 'AWAITING:AUTH:RESPONSE',
+  authSignIn: 'AUTH::SIGNIN',
+  authSignOut: 'AUTH::SIGNOUT',
+  authError: 'AUTH::FAIL',
+};
+
+export const authError = error => {
+  return {
+    type: AuthActionTypes.authError,
+    error,
+  }
+};
+
+/*
 import pick from 'lodash/pick';
 import { auth, provider, database } from '../api/firebase';
 
@@ -68,3 +83,4 @@ export const startListeningToAuth = () => {
     });
   };
 };
+*/

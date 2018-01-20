@@ -1,6 +1,7 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
+import { TextField } from 'redux-form-material-ui';
 import { Field } from 'redux-form';
+
 
 const SignUpFormContent = () => {
   const fields = [
@@ -27,8 +28,8 @@ const SignUpFormContent = () => {
     },
     {
       id: 'SignUpPasswordFieldConfirm',
-      name: 'password',
-      floatingLabelText: 'Password',
+      name: 'passwordConfirm',
+      floatingLabelText: 'Confirm Password',
       type: 'password',
       component: TextField,
     },

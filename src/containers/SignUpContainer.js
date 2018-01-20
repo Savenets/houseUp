@@ -1,31 +1,31 @@
 import { connect } from 'react-redux';
-import { reduxForm } from 'redux-form';
-import { auth } from '../firebase';
+import { reduxForm, getFormValues } from 'redux-form';
+import { createStructuredSelector } from 'reselect';
+import { auth, db } from '../firebase';
+import * as authActions from '../actions/auth';
+import { getAuthErrorMessage } from '../selectors/auth';
 
 import SignUp from '../components/Auth/SignUp';
 
+const formName = 'SignUpForm';
 
-const mapStateToProps = ({ auth }) => {
-  return { auth };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-   aad(){
-     console.log('dfe')
-   }
-  };
-};
+const mapStateToProps = createStructuredSelector({
+  formValues: getFormValues(formName),
+  errorMessage: getAuthErrorMessage,
+});
 
 const loginFormContainer = reduxForm({
-  form: 'SignUpForm',
-  onSubmit: async ({ email, password }, dispatch) => {
+  form: formName,
+  onSubmit: async (fields, dispatch) => {
+    const { email, password, fullName } = fields;
     try {
-      //await FormHelper.submit(AuthActions.login(email, password), dispatch);
+      const userAuth = await auth.doCreateUserWithEmailAndPassword(email, password);
+      db.doCreateUser(userAuth.uid, fullName, email)
     } catch ({ message }) {
-      //FormErrorHelper.handleError(message, dispatch, 'Incorrect credentials');
+      dispatch(authActions.authError(message));
+      console.log(message)
     }
   },
 })(SignUp);
 
-export default connect(mapStateToProps, mapDispatchToProps)(loginFormContainer);
+export default connect(mapStateToProps)(loginFormContainer);

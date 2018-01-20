@@ -5,3 +5,10 @@
   justify-content: center;
   margin: 24px auto;
 }
+
+.error {
+  color: red;
+  font-size: 1.6rem;
+  font-weight: bold;
+  padding: 16px
+}
