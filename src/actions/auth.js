@@ -2,6 +2,8 @@ export const AuthActionTypes = {
   awaitingAuthResponse: 'AWAITING:AUTH:RESPONSE',
   authSignIn: 'AUTH::SIGNIN',
   authSignOut: 'AUTH::SIGNOUT',
+
+  authAuthenticate: 'AUTH:AUTHENTICATED',
   authError: 'AUTH::FAIL',
 };
 
@@ -12,6 +14,11 @@ export const authError = error => {
   }
 };
 
+export const authAuthenticate = () => {
+  return {
+    type: AuthActionTypes.authAuthenticate
+  }
+};
 /*
 import pick from 'lodash/pick';
 import { auth, provider, database } from '../api/firebase';

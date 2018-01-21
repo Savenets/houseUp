@@ -1,13 +1,14 @@
 
 export const UserActionTypes = {
-  register: 'User::REGISTER',
+  userAdd: 'USER::ADD',
 };
 
-export default {
-  register: payload => ({ type: UserActionTypes.register, payload }),
+export const userAdd = payload => {
+  return {
+    type: UserActionTypes.userAdd,
+    payload,
+  }
 };
-
-
 
 /*
 import { database } from '../../api/firebase';

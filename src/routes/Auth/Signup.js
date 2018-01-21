@@ -1,13 +1,17 @@
 import React from 'react';
+import Layout from '../../components/Layout';
+import Theme from '../../styles/Theme';
 import SignUpContainer from '../../containers/SignUpContainer';
 
 import { loginWrapper } from './Login.css';
 
 const SignUp = () => {
   return (
-    <div className={loginWrapper}>
-      <SignUpContainer />
-    </div>
+    <Layout theme={Theme}>
+      <div className={loginWrapper}>
+        <SignUpContainer />
+      </div>
+    </Layout>
   );
 };
 

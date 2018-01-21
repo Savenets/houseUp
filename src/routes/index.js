@@ -5,13 +5,12 @@ import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 
 import createStore from '../store';
-
-import Layout from '../components/Layout';
-
-import Theme from '../styles/Theme';
+import PrivateRoute from '../containers/PrivateRouteContainer';
 import Home from './Home';
 import Login from './Auth/Login';
 import Signup from './Auth/Signup';
+import Dashboard from './Dashboard';
+
 //import NotFound from './NotFound';
 
 const history = createHistory();
@@ -19,17 +18,15 @@ const router = routerMiddleware(history);
 
 export default (
   <Provider store={createStore({}, [ router ])}>
-    <Layout theme={Theme}>
-      <ConnectedRouter history={history}>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={Signup} />
-
-          {/* <Route component={NotFound} />*/}
-        </Switch>
-      </ConnectedRouter>
-    </Layout>
+    <ConnectedRouter history={history}>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={Signup} />
+        <PrivateRoute path="/dashboard" component={Dashboard} />
+        {/* <Route component={NotFound} />*/}
+      </Switch>
+    </ConnectedRouter>
   </Provider>
 );
 
