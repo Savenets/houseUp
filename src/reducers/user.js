@@ -13,24 +13,3 @@ export default function authReducer(state = initialState, action) {
       return state;
   }
 }
-
-
-/*
-import extend from 'lodash/extend';
-import clone from 'lodash/clone'
-
-
-export default function usersReducer(state = {}, action) {
-  switch(action.type) {
-    case 'ADD_USER':
-      return extend(clone(state), { [action.uid]: {
-        displayName: action.displayName,
-        email: action.email,
-        uid: action.uid,
-        photoURL: action.photoURL
-      }});
-    default:
-      return state;
-  }
-}
-*/

@@ -4,7 +4,7 @@ import Navigation from '../Navigation';
 
 import { headerWrapper } from './Header.css';
 
-const Header = ({ isAuthenticated, accountName, style }) => {
+const Header = ({ isAuthenticated, style }) => {
 
   return (
     <header className={headerWrapper} style={style}>
@@ -15,13 +15,11 @@ const Header = ({ isAuthenticated, accountName, style }) => {
 
 Header.defaultProps = {
   isAuthenticated: false,
-  accountName: '',
   style: null,
 };
 
 Header.propTypes = {
   isAuthenticated: PropTypes.bool,
-  accountName: PropTypes.string,
   style: PropTypes.shape(),
 };
 

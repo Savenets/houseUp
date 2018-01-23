@@ -1,5 +1,6 @@
 import { applyMiddleware, compose, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import thunk from 'redux-thunk';
 import persistState from 'redux-localstorage';
 import _ from 'lodash';
 
@@ -12,9 +13,7 @@ export default (initialState = {}, additionalMiddlewares = []) => {
   const sagaMiddleware = createSagaMiddleware();
 
   const PATHS = [
-    'notificationsState',
-    'enrollment',
-    'enrollmentSteps',
+    'user',
   ];
 
   const slicer = paths => state => _.zipObjectDeep( paths, _.at( state, paths ) );
@@ -25,6 +24,7 @@ export default (initialState = {}, additionalMiddlewares = []) => {
 
   const middleware = [
     sagaMiddleware,
+    thunk,
     ...additionalMiddlewares,
   ];
 

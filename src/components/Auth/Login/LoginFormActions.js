@@ -8,26 +8,29 @@ const buttonStyles = {
   margin: '16px 0',
 };
 
-const SignUpFormActions = ({ invalid, submitting }) => {
+const LoginFormActions = ({ invalid, submitting }) => {
 
   return (
     <div>
       <RaisedButton
         disabled={invalid || submitting}
-        label="Sign Up"
+        label="Log in"
         type="submit"
         style={buttonStyles}
         fullWidth
         primary
       />
+      <Link href="/" to="auth/forgot-password">
+        Forgot Password?
+      </Link>
     </div>
   );
 };
 
-SignUpFormActions.propTypes = {
+LoginFormActions.propTypes = {
   invalid: PropTypes.bool.isRequired,
   submitting: PropTypes.bool.isRequired,
 };
 
-export default SignUpFormActions;
+export default LoginFormActions;
 

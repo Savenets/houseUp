@@ -1,10 +1,23 @@
+import pick from 'lodash/pick';
+import { firebase } from '../firebase';
+import createStore from '../store';
+
 export const AuthActionTypes = {
   awaitingAuthResponse: 'AWAITING:AUTH:RESPONSE',
   authSignIn: 'AUTH::SIGNIN',
   authSignOut: 'AUTH::SIGNOUT',
 
+ // handleAuthStaceChange: 'HANDLE::AUTH:STATE:CHANGE',
+ /// authInit: 'AUTH::INIT',
+ authAuthenticateUser: 'AUTH::AUTHENTICATE:USER',
   authAuthenticate: 'AUTH:AUTHENTICATED',
   authError: 'AUTH::FAIL',
+};
+
+export const authInit = () => {
+  return {
+    type: AuthActionTypes.authInit
+  }
 };
 
 export const authError = error => {
@@ -19,73 +32,35 @@ export const authAuthenticate = () => {
     type: AuthActionTypes.authAuthenticate
   }
 };
-/*
-import pick from 'lodash/pick';
-import { auth, provider, database } from '../api/firebase';
 
 
-export const ReportsActionTypes = {
-  findDentistRevenueChart: 'REPORTS_ACTION_TYPES::FIND:DENTIST:REVENUE:CHART',
-  findKleerRevenueChart: 'REPORTS_ACTION_TYPES::FIND:KLEER:REVENUE:CHART',
-  findMembersAddedData: 'REPORTS_ACTION_TYPES::FIND:MEMBERS:ADDED',
-  findPlansChartData: 'REPORTS_ACTION_TYPES::FIND:PLANS:CHART',
-  findOverallTotals: 'REPORTS_ACTION_TYPES::FIND:OVERALL:TOTALS',
-  findPracticeCancellationChart: 'REPORTS_ACTION_TYPES::FIND:PRACTICE:CANCELLATION:CHART',
-  findDentistDashboardTotals: 'REPORTS_ACTION_TYPES::FIND:DENTIST:DASHBOARD:TOTALS',
-};
-
-export const AuthActionTypes = {
-  awaitingAuthResponse: 'AWAITING:AUTH:RESPONSE',
-  authSignIn: 'AUTH::SIGNIN',
-  authSignOut: 'AUTH::SIGNOUT',
-};
-
-export const signIn = () => {
-  auth.signInWithPopup(provider);
-
+export const authAuthenticateUser = user => {
   return {
-    type: AuthActionTypes.awaitingAuthResponse
-  };
+    type: AuthActionTypes.authAuthenticateUser,
+    payload: user,
+  }
 };
 
-export const signOut = () => {
-  auth.signOut();
-
-  return {
-    type: AuthActionTypes.awaitingAuthResponse
-  };
-};
-
-export const signedIn = user => {
-  return {
-    type: AuthActionTypes.authSignIn,
-    displayName: user.displayName,
-    email: user.email,
-    uid: user.uid,
-    photoURL: user.photoURL
-  };
-};
-
-export const signedOut = () => {
+export const authSignOut = () => {
   return {
     type: AuthActionTypes.authSignOut,
-    email: null,
-    displayName: null,
-    photoURL: null,
-    uid: null
-  };
+  }
 };
 
-export const startListeningToAuth = () => {
-  return (dispatch, getState) => {
-    auth.onAuthStateChanged(user => {
+/*
+export const handleAuthStaceChange = () => {
+  console.log('++++++  handleAuthStaceChange')
+  return dispatch => {
+    console.log('user in action')
+    firebase.auth.onAuthStateChanged(user => {
       if (user) {
-        dispatch(signedIn(user));
-        database.ref('users')
+        console.log('there is user')
+        createStore.dispatch(authAuthenticateUser());
+        firebase.db.ref('users')
           .child(user.uid)
-          .set(pick(user, ['displayName', 'email', 'uid', 'photoURL']));
+          .set(pick(user,['displayName','email','uid','photoURL']));
       } else {
-        dispatch(signedOut());
+        dispatch(console.log("not logged in "));
       }
     });
   };

@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AddTask from 'material-ui/svg-icons/action/alarm-add';
-import { Link } from 'react-router-dom';
 import RaisedButton from 'material-ui/RaisedButton';
 import AppBar from './AppBar';
 import DrawerMenu from './DrawerMenu';
@@ -17,7 +15,6 @@ class Navigation extends React.Component {
   };
 
   onMenuItemTap = () => {
-    console.log("helloooooy ");
     this.toggleDrawerState();
   };
 
@@ -36,11 +33,16 @@ class Navigation extends React.Component {
   render() {
     const { drawerOpen } = this.state;
     const { children, appBarStyles, ...rest } = this.props;
-
-
+    const Controls = (
+      <div>
+        <a href="auth/signup"> <RaisedButton primary label="Signup" /></a>
+        <a href="auth/login"> <RaisedButton primary label="Login" /></a>
+        <a href="auth/logout"> <RaisedButton primary label="Logout" /></a>
+      </div>
+    );
 
     const appBarProps = {
-      iconElementRight: <a href="/signup"> <RaisedButton primary label="Signup" /></a>,
+      iconElementRight: Controls,
       handleLeftButtonTouchTap: this.onMenuItemTap,
       style: appBarStyles,
       titleStyle,

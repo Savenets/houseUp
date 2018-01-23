@@ -1,14 +1,17 @@
-import { put, takeEvery } from 'redux-saga/effects';
+import { put, takeEvery, call } from 'redux-saga/effects';
 import { push } from 'react-router-redux';
-import { AuthActionTypes } from '../actions/auth';
+import * as AuthActions from '../actions/auth';
 
-function* handleCancelFlow() {
+function* handleDashboardPush() {
   yield put(push({
     pathname: '/dashboard/',
   }));
 }
 
+function* handleAuthUser(user) {
+  yield put(AuthActions.authAuthenticateUser(user));
+}
+
 export default function* authDashboardWorker() {
-  console.log("saga in action");
-  yield takeEvery(AuthActionTypes.authAuthenticate, handleCancelFlow);
+  yield takeEvery(AuthActions.AuthActionTypes.authAuthenticate, handleDashboardPush);
 }
