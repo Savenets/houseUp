@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import RaisedButton from 'material-ui/RaisedButton';
 import AppBar from './AppBar';
 import DrawerMenu from './DrawerMenu';
@@ -35,9 +36,8 @@ class Navigation extends React.Component {
     const { children, appBarStyles, ...rest } = this.props;
     const Controls = (
       <div>
-        <a href="auth/signup"> <RaisedButton primary label="Signup" /></a>
-        <a href="auth/login"> <RaisedButton primary label="Login" /></a>
-        <a href="auth/logout"> <RaisedButton primary label="Logout" /></a>
+        <Link to="/auth/login"><RaisedButton primary label="Login" /></Link>
+        <Link to="/auth/logout"><RaisedButton primary label="logout" /></Link>
       </div>
     );
 

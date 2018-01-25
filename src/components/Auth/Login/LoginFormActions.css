@@ -1,0 +1,19 @@
+@value accentText from "../../../styles/colors.css";
+@value subheading from "../../../styles/typography.css";
+
+.wrapper {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.separator {
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 8px;
+  color: accentText;
+}
+
+.link {
+  composes: subheading;
+}

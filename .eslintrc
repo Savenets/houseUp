@@ -47,6 +47,13 @@
     "jsx-quotes": ["warn", "prefer-double"],
     "no-multi-spaces": ["warn"],
     "no-multiple-empty-lines": ["warn", { "max": 1, "maxEOF": 1 }],
-    "no-extra-semi": ["warn"]
+    "no-extra-semi": ["warn"],
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Link" ],
+      "specialLink": [ "to", "hrefLeft", "hrefRight" ],
+      "aspects": [ "noHref", "invalidHref", "preferButton" ]
+    }]
   }
 }
+
+

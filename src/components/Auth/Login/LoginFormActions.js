@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import RaisedButton from 'material-ui/RaisedButton';
+import { wrapper, separator, link } from './LoginFormActions.css'
 
 const buttonStyles = {
   height: 56,
@@ -11,7 +12,7 @@ const buttonStyles = {
 const LoginFormActions = ({ invalid, submitting }) => {
 
   return (
-    <div>
+    <div className={wrapper}>
       <RaisedButton
         disabled={invalid || submitting}
         label="Log in"
@@ -20,9 +21,16 @@ const LoginFormActions = ({ invalid, submitting }) => {
         fullWidth
         primary
       />
-      <Link href="/" to="auth/forgot-password">
-        Forgot Password?
+      <span className={separator}>or</span>
+      <Link to="/auth/signup">
+        <RaisedButton
+          style={buttonStyles}
+          fullWidth
+          primary
+          label="signup"
+        />
       </Link>
+      <Link to="auth/forgot-password"><span className={link}>Forgot Password?</span></Link>
     </div>
   );
 };
