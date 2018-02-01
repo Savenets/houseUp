@@ -5,10 +5,8 @@ const authSelector = state => state.auth;
 
 // Auth Status
 export const getAuthErrorMessage = createSelector(authSelector, auth => get(auth, 'error'));
-export const isAuthStatusAuthenticated = createSelector(authSelector, auth => get(auth, 'isAuthenticated'));
 
-export const isAuthenticated = createSelector(
-  authSelector,
-  auth => get(auth, 'isAuthStatusChecked', false) && get(auth, 'isAuthenticated', false)
-);
+//Auth => userAuth
+export const getUserAuth = createSelector(authSelector, auth => get(auth, 'userAuth', {}));
 
+export const isAuthStatusAuthenticated = createSelector(getUserAuth, auth => get(auth, 'uid'));

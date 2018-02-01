@@ -1,7 +1,8 @@
 /* eslint-disable */
 import React from 'react';
 import { connect } from 'react-redux';
-import { authAuthenticateUser } from '../actions/auth';
+
+import { authAuthenticateInit, authAuthenticateUser } from '../actions/auth';
 
 import { firebase } from '../firebase';
 
@@ -9,13 +10,7 @@ const withAuthentication = Component => {
   class WithAuthentication extends React.Component {
 
     componentDidMount() {
-      const { onSetAuthUser } = this.props;
-
-      firebase.auth.onAuthStateChanged(authUser => {
-        authUser
-          ? onSetAuthUser(authUser)
-          : onSetAuthUser(null);
-      });
+      this.props.verifyAuth()
     }
 
     render() {
@@ -27,7 +22,14 @@ const withAuthentication = Component => {
   }
 
   const mapDispatchToProps = dispatch => ({
-    onSetAuthUser: authUser => dispatch(authAuthenticateUser(authUser)),
+
+    verifyAuth: () => {
+      firebase.auth.onAuthStateChanged(authUser => {
+          authUser
+            ? dispatch(authAuthenticateUser(authUser))
+            : dispatch(authAuthenticateUser(null))
+        });
+     }
   });
 
   return connect(null, mapDispatchToProps)(WithAuthentication);

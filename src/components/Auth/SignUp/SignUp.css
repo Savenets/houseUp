@@ -9,5 +9,6 @@
 .error {
   font-size: 1.6rem;
   font-weight: bold;
-  padding: 16px
+  padding: 16px;
+  color: red;
 }

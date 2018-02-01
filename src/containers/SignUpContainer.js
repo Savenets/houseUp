@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { createStructuredSelector } from 'reselect';
+import { Route, Switch, withRouter } from 'react-router-dom';
+
 import { auth, db } from '../firebase';
 import * as authActions from '../actions/auth';
 import * as userActions from '../actions/user';
