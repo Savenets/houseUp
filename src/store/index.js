@@ -3,6 +3,9 @@ import createSagaMiddleware from 'redux-saga';
 import thunk from 'redux-thunk';
 import persistState from 'redux-localstorage';
 import _ from 'lodash';
+import { authAuthenticateInit, authAuthenticateUser } from '../actions/auth';
+
+import { firebase } from '../firebase';
 
 export default (initialState = {}, additionalMiddlewares = []) => {
   // It's application scope reducers and sagas, depends on webpack entry point
@@ -23,8 +26,8 @@ export default (initialState = {}, additionalMiddlewares = []) => {
   ];
 
   const middleware = [
-    sagaMiddleware,
     thunk,
+    sagaMiddleware,
     ...additionalMiddlewares,
   ];
 
@@ -53,6 +56,19 @@ export default (initialState = {}, additionalMiddlewares = []) => {
       store.replaceReducer(reducers);
     });
   }
+
+
+  store.dispatch(
+   async function (dispatch) {
+     await firebase.auth.onAuthStateChanged(user => {
+        if (user) {
+          dispatch(authAuthenticateUser(user))
+        } else {
+          dispatch(authAuthenticateUser(null))
+        }
+      });
+    }
+  );
 
   return store;
 };
