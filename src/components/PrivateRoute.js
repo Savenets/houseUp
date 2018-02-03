@@ -21,7 +21,7 @@ PrivateRoute.defaultProps = {
 
 PrivateRoute.propTypes = {
   component: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired,
+  isAuthenticated: PropTypes.string.isRequired,
   redirectTo: PropTypes.string,
 };
 

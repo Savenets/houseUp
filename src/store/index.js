@@ -3,6 +3,7 @@ import createSagaMiddleware from 'redux-saga';
 import thunk from 'redux-thunk';
 import persistState from 'redux-localstorage';
 import _ from 'lodash';
+import * as actions from "../actions/auth";
 
 export default (initialState = {}, additionalMiddlewares = []) => {
   // It's application scope reducers and sagas, depends on webpack entry point
@@ -53,6 +54,13 @@ export default (initialState = {}, additionalMiddlewares = []) => {
       store.replaceReducer(reducers);
     });
   }
+
+
+  store.dispatch(
+    function (dispatch) {
+      dispatch(actions.authCheckState())
+    }
+  );
 
   return store;
 };

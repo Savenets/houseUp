@@ -24,4 +24,4 @@ const  Routes = () => (
   </Layout>
 );
 
-export default withRouter(withAuthentication(Routes));
+export default withRouter(Routes);
