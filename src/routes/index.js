@@ -5,7 +5,6 @@ import Layout from '../components/Layout';
 import Theme from '../styles/Theme';
 import PrivateRoute from '../containers/PrivateRouteContainer';
 import AppComponent from '../components/AppComponent';
-import withAuthentication from '../components/WithAuthentication';
 import Home from './Home';
 import Auth from './Auth';
 import Dashboard from './Dashboard';

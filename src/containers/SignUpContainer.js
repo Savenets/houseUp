@@ -9,26 +9,26 @@ import SignUp from '../components/Auth/SignUp';
 
 const formName = 'SignUpForm';
 
+const validateCreateAccount = values => {
+  const errors = {};
+  if (values.password && values.passwordConfirm !== values.password) {
+    errors.passwordConfirm = 'Password does not match';
+  }
+  return errors;
+};
+
 const mapStateToProps = createStructuredSelector({
   errorMessage: getAuthErrorMessage,
 });
 
-const loginFormContainer = reduxForm({
+const signUpFormContainer = reduxForm({
   form: formName,
-  onSubmit: async (form, dispatch) => {
+  validate: validateCreateAccount,
+  onSubmit: (form, dispatch) => {
     const { email, password, fullName } = form;
     const isSignup = true;
     dispatch( authActions.auth( email, password, isSignup ));
   },
 })(SignUp);
 
-export default connect(mapStateToProps)(loginFormContainer);
-
-
-/*
-const mapDispatchToProps = dispatch => {
-  return {
-    onAuth: ( email, password, isSignup ) => dispatch( actions.auth( email, password, isSignup ) ),
-    onSetAuthRedirectPath: () => dispatch( actions.setAuthRedirectPath( '/' ) )
-  };
-};*/
+export default connect(mapStateToProps)(signUpFormContainer);

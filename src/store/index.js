@@ -55,7 +55,6 @@ export default (initialState = {}, additionalMiddlewares = []) => {
     });
   }
 
-
   store.dispatch(
     function (dispatch) {
       dispatch(actions.authCheckState())

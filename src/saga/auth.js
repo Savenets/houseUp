@@ -2,8 +2,8 @@ import { takeEvery, put } from "redux-saga/effects";
 import { delay } from "redux-saga";
 import axios from "axios";
 
-//import { AuthActionTypes } from "../actions/auth";
 import * as actions from "../actions/auth";
+import { firebaseApi } from '../constants/api';
 
 function* logoutSaga(action) {
   yield localStorage.removeItem("token");
@@ -18,56 +18,44 @@ function* checkAuthTimeoutSaga(action) {
 }
 
 function* authUserSaga(action) {
-  alert(' AUTH USER');
   yield put(actions.authStart());
   const authData = {
     email: action.email,
     password: action.password,
     returnSecureToken: true
   };
-  let url =
-    "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyDEeiGYWI22fbkhrB0C9g8qgQT_XtACCmY";
-  if (!action.isSignup) {
-    url =
-      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyDEeiGYWI22fbkhrB0C9g8qgQT_XtACCmY";
-  }
+
+  let url = !action.isSignup ? `${firebaseApi.verifyPassWord}?key=${firebaseApi.apiKey}`
+                             : `${firebaseApi.signupNewUser}?key=${firebaseApi.apiKey}`;
+
   try {
     const response = yield axios.post(url, authData);
-
     const expirationDate = yield new Date(
       new Date().getTime() + response.data.expiresIn * 1000
     );
     yield localStorage.setItem("token", response.data.idToken);
     yield localStorage.setItem("expirationDate", expirationDate);
     yield localStorage.setItem("userId", response.data.localId);
-    yield put(
-      actions.authSuccess(response.data.idToken, response.data.localId)
-    );
+    yield put(actions.authSuccess(response.data.idToken, response.data.localId));
     yield put(actions.checkAuthTimeout(response.data.expiresIn));
   } catch (error) {
-    yield put(actions.authFail(error.response.data.error));
+
+    yield put(actions.authFail(error.response.data.error.message));
   }
 }
 
 function* authCheckStateSaga(action) {
-  alert('I in auth check state')
   const token = yield localStorage.getItem("token");
   if (!token) {
     yield put(actions.logout());
   } else {
-    const expirationDate = yield new Date(
-      localStorage.getItem("expirationDate")
-    );
+    const expirationDate = yield new Date(localStorage.getItem("expirationDate"));
     if (expirationDate <= new Date()) {
       yield put(actions.logout());
     } else {
       const userId = yield localStorage.getItem("userId");
       yield put(actions.authSuccess(token, userId));
-      yield put(
-        actions.checkAuthTimeout(
-          (expirationDate.getTime() - new Date().getTime()) / 1000
-        )
-      );
+      yield put(actions.checkAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000));
     }
   }
 }

@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 
-import AuthActions from '../actions/auth';
-import Logout from '../components/Logout';
+import { logout } from '../actions/auth';
+import Logout from '../components/Auth/Logout';
 
 const mapDispatchToProps = dispatch => ({
   logout: () => {
-    dispatch(AuthActions.authLogout())
+    dispatch(logout());
   },
 });
 

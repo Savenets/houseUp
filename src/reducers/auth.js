@@ -35,7 +35,7 @@ const authLogout = (state, action) => {
 
 const setAuthRedirectPath = (state, action) => {
   return updateObject(state, { authRedirectPath: action.path })
-}
+};
 
 export default function authReducer( state = initialState, action ) {
   switch ( action.type ) {
@@ -48,43 +48,3 @@ export default function authReducer( state = initialState, action ) {
       return state;
   }
 };
-
-
-
-
-
-/*
-import { AuthActionTypes } from '../actions/auth';
-import { AppActionTypes }  from '../actions/app';
-
-const initialState = {
-    userAuth: null,
-    error: null,
-    isAuthenticated: false,
-};
-
-export default function authReducer(state = initialState, action) {
-  switch(action.type) {
-
-    case AppActionTypes.eraseReducers: {
-      return initialState;
-    }
-
-    case AuthActionTypes.authAuthenticate:
-      return {...state, isAuthenticated: true};
-
-    case AuthActionTypes.authAuthenticateUser:
-      alert("im in reducer " + action.payload);
-      return {...state, userAuth: action.payload};
-
-    case AuthActionTypes.authError:
-      return {...state, error: actioƒn.error};
-
-    case AuthActionTypes.authLogout:
-      return {...state };
-
-    default:
-      return state;
-  }
-}
-*/

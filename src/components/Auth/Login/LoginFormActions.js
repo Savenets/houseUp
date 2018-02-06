@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import RaisedButton from 'material-ui/RaisedButton';
+
 import { wrapper, separator, link } from './LoginFormActions.css'
 
 const buttonStyles = {
@@ -30,7 +31,7 @@ const LoginFormActions = ({ invalid, submitting }) => {
           label="signup"
         />
       </Link>
-      <Link to="auth/forgot-password"><span className={link}>Forgot Password?</span></Link>
+      {/*<Link to="auth/forgot-password"><span className={link}>Forgot Password?</span></Link>*/}
     </div>
   );
 };

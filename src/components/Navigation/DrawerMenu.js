@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import Drawer from './Drawer';
-//import NavigationContainer from 'Member/containers/NavigationContainer';
 
 import { titleWrapper, titleWrapperLoggedIn, title, drawerMenu } from './DrawerMenu.css';
 

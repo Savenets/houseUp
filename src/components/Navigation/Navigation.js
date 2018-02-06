@@ -33,13 +33,12 @@ class Navigation extends React.Component {
 
   render() {
     const { drawerOpen } = this.state;
-    const { children, appBarStyles, ...rest } = this.props;
+    const { children, isAuthenticated, appBarStyles, ...rest } = this.props;
     const Controls = (
       <div>
-        <Link to="/auth/login"><RaisedButton primary label="Login" /></Link>
-        <Link to="/auth/logout"><RaisedButton primary label="logout" /></Link>
-      </div>
-    );
+        { isAuthenticated ? <Link to="/auth/logout"><RaisedButton primary label="logout" /></Link>
+                          : <Link to="/auth/login"><RaisedButton primary label="Login" /></Link> }
+      </div>);
 
     const appBarProps = {
       iconElementRight: Controls,
@@ -65,11 +64,13 @@ class Navigation extends React.Component {
 Navigation.defaultProps = {
   children: null,
   appBarStyles: null,
+  isAuthenticated: false,
 };
 
 Navigation.propTypes = {
   children: PropTypes.node,
   appBarStyles: PropTypes.shape({}),
+  isAuthenticated: PropTypes.bool,
 };
 
 export default Navigation;

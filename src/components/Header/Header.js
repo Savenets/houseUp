@@ -8,7 +8,7 @@ const Header = ({ isAuthenticated, style }) => {
 
   return (
     <header className={headerWrapper} style={style}>
-      <Navigation />
+      <Navigation isAuthenticated={isAuthenticated} />
     </header>
   );
 };

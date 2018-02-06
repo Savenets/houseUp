@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import Spinner from '../../components/Spinner';
+import { Redirect } from 'react-router-dom';
 
 class Logout extends React.Component {
   componentDidMount() {
-    setTimeout(this.props.logout, -1);
-    // this.props.logout();
+    this.props.logout();
   }
 
   shouldComponentUpdate() {
@@ -14,7 +12,7 @@ class Logout extends React.Component {
   }
 
   render() {
-    return <Spinner opaque />;
+    return <Redirect to="/" />;
   }
 }
 

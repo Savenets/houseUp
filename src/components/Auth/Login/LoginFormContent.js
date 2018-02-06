@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextField } from 'redux-form-material-ui';
 import { Field } from 'redux-form';
-
+import { ValidationErrorMessages as validation } from '../../../helpers/validation';
 
 const LoginFormContent = () => {
   const fields = [
@@ -10,6 +10,7 @@ const LoginFormContent = () => {
       name: 'email',
       floatingLabelText: 'Email',
       type: 'email',
+      validate:[validation.required],
       component: TextField,
     },
     {
@@ -17,6 +18,7 @@ const LoginFormContent = () => {
       name: 'password',
       floatingLabelText: 'Password',
       type: 'password',
+      validate:[validation.required],
       component: TextField,
     },
   ];

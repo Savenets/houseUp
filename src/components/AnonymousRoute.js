@@ -2,26 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
 
-const PrivateRoute = ({ component: Component, isAuthenticated, redirectTo, ...rest }) => {
+const AnonymousRoute = ({ component: Component, isAuthenticated, redirectTo, ...rest }) => {
   return (
     <Route
       {...rest}
       render={props => isAuthenticated
-        ? <Component {...props} />
-        : <Redirect to={redirectTo} />
+        ? <Redirect to={redirectTo} />
+        : <Component {...props} />
       }
     />
   );
 };
 
-PrivateRoute.defaultProps = {
-  redirectTo: '/auth/login',
+AnonymousRoute.defaultProps = {
+  redirectTo: '/dashboard',
 };
 
-PrivateRoute.propTypes = {
+AnonymousRoute.propTypes = {
   component: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
   redirectTo: PropTypes.string,
 };
 
-export default PrivateRoute;
+export default AnonymousRoute;
+

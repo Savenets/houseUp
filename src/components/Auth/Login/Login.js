@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Paper from 'material-ui/Paper';
-import { Link } from 'react-router-dom';
-import RaisedButton from 'material-ui/RaisedButton';
 
 import LoginFormContent from './LoginFormContent';
 import LoginFormActions from './LoginFormActions';
@@ -11,7 +9,7 @@ import { paperContent, error } from './Login.css';
 
 const paperStyle = {
   padding: '8px 16px 16px',
-  maxWidth: 524,
+  maxWidth: 344,
 };
 
 const LoginForm = ({ handleSubmit, invalid, submitting, errorMessage }) => (
