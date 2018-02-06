@@ -13,20 +13,20 @@ function* logoutSaga(action) {
 }
 
 function* checkAuthTimeoutSaga(action) {
-  yield delay(action.expirationTime * 1000);
+  console.log(action);
+  yield delay(action.payload.expirationTime * 1000);
   yield put(actions.logout());
 }
 
 function* authUserSaga(action) {
   yield put(actions.authStart());
   const authData = {
-    email: action.email,
-    password: action.password,
-    returnSecureToken: true
+    email: action.payload.email,
+    password: action.payload.password,
+    returnSecureToken: true,
   };
-
-  let url = !action.isSignup ? `${firebaseApi.verifyPassWord}?key=${firebaseApi.apiKey}`
-                             : `${firebaseApi.signupNewUser}?key=${firebaseApi.apiKey}`;
+  let url = !action.payload.isSignup ? `${firebaseApi.verifyPassWord}?key=${firebaseApi.apiKey}`
+                                     : `${firebaseApi.signupNewUser}?key=${firebaseApi.apiKey}`;
 
   try {
     const response = yield axios.post(url, authData);

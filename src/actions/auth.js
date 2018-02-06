@@ -19,15 +19,14 @@ export const authStart = () => {
 export const authSuccess = (token, userId) => {
   return {
     type: AuthActionTypes.authSuccess,
-    idToken: token,
-    userId: userId
+    payload: {token, userId}
   };
 };
 
 export const authFail = error => {
   return {
     type: AuthActionTypes.authFail,
-    error: error
+    payload: { error }
   };
 };
 
@@ -46,23 +45,21 @@ export const logoutSucceed = () => {
 export const checkAuthTimeout = expirationTime => {
   return {
     type: AuthActionTypes.authCheckTimeout,
-    expirationTime: expirationTime
+    payload: { expirationTime }
   };
 };
 
 export const auth = (email, password, isSignup) => {
   return {
     type: AuthActionTypes.authUser,
-    email: email,
-    password: password,
-    isSignup
+    payload: { email, password, isSignup }
   };
 };
 
 export const setAuthRedirectPath = path => {
   return {
     type: AuthActionTypes.authSetRedirectPath,
-    path: path
+    payload: { path }
   };
 };
 

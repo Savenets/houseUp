@@ -1,5 +1,4 @@
 import { AuthActionTypes } from '../actions/auth';
-import { updateObject } from '../helpers/utils';
 
 const initialState = {
   token: null,
@@ -9,41 +8,44 @@ const initialState = {
   authRedirectPath: '/'
 };
 
-const authStart = ( state, action ) => {
-  return updateObject( state, { error: null, loading: true } );
-};
-
-const authSuccess = (state, action) => {
-  return updateObject( state, {
-    token: action.idToken,
-    userId: action.userId,
-    error: null,
-    loading: false
-  } );
-};
-
-const authFail = (state, action) => {
-  return updateObject( state, {
-    error: action.error,
-    loading: false
-  });
-};
-
-const authLogout = (state, action) => {
-  return updateObject(state, { token: null, userId: null });
-};
-
-const setAuthRedirectPath = (state, action) => {
-  return updateObject(state, { authRedirectPath: action.path })
-};
-
 export default function authReducer( state = initialState, action ) {
   switch ( action.type ) {
-    case AuthActionTypes.authStart: return authStart(state, action);
-    case AuthActionTypes.authSuccess: return authSuccess(state, action);
-    case AuthActionTypes.authFail: return authFail(state, action);
-    case AuthActionTypes.authLogout: return authLogout(state, action);
-    case AuthActionTypes.authSetRedirectPath: return setAuthRedirectPath(state,action);
+    case AuthActionTypes.authStart: {
+      return {
+        ...state,
+        error: null,
+        loading: true,
+      }
+    }
+    case AuthActionTypes.authSuccess: {
+      return {
+        ...state,
+        token: action.payload.token,
+        userId: action.payload.userId,
+        error: null,
+        loading: false,
+      }
+    }
+    case AuthActionTypes.authFail: {
+      return {
+        ...state,
+        error: action.payload.error,
+        loading: false,
+      }
+    }
+    case AuthActionTypes.authLogout: {
+      return {
+        ...state,
+        token: null,
+        userId: null,
+      }
+    }
+    case AuthActionTypes.authSetRedirectPath: {
+      return {
+        ...state,
+        authRedirectPath: action.payload.path
+      }
+    }
     default:
       return state;
   }
