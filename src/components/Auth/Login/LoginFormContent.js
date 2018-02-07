@@ -6,15 +6,15 @@ import { ValidationErrorMessages as validation } from '../../../helpers/validati
 const LoginFormContent = () => {
   const fields = [
     {
-      id: 'SignUpEmailAddress',
+      id: 'LoginEmailAddress',
       name: 'email',
       floatingLabelText: 'Email',
       type: 'email',
-      validate:[validation.required],
+      validate:[validation.required, validation.validEmail],
       component: TextField,
     },
     {
-      id: 'SignUpFormPasswordField',
+      id: 'LoginFormPasswordField',
       name: 'password',
       floatingLabelText: 'Password',
       type: 'password',

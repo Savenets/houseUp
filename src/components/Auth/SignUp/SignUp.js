@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Paper from 'material-ui/Paper';
 
+import Spinner from '../../../components/Spinner';
 import SignUpFormContent from './SignUpFormContent';
 import SignUpFormActions from './SignUpFormActions';
 
@@ -12,7 +13,7 @@ const paperStyle = {
   maxWidth: 344,
 };
 
-const LoginForm = ({ handleSubmit, invalid, submitting, errorMessage }) => (
+const signupForm = ({ handleSubmit, invalid, submitting, loading, errorMessage }) => (
   <div className={paperContent}>
     <h1>Please fill out the form to register</h1>
     { errorMessage && <span className={error}>OLA-L-A-A L-A-AA! {errorMessage}</span> }
@@ -25,18 +26,20 @@ const LoginForm = ({ handleSubmit, invalid, submitting, errorMessage }) => (
         />
       </form>
     </Paper>
+    {loading && <Spinner />}
   </div>
 );
 
-LoginForm.defaultProps = {
+signupForm.defaultProps = {
   errorMessage: null,
 };
 
-LoginForm.propTypes = {
+signupForm.propTypes = {
   invalid: PropTypes.bool.isRequired,
   submitting: PropTypes.bool.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  errorMessage: PropTypes.string
+  errorMessage: PropTypes.string,
+  loading: PropTypes.bool.isRequired,
 };
 
-export default LoginForm;
+export default signupForm;

@@ -4,6 +4,7 @@ export const AuthActionTypes = {
   authStart: 'AUTH::START',
   authSuccess: 'AUTH::SUCCESS',
   authFail: 'AUTH::FAIL',
+  signUpFail: 'AUTH:SIGNUP::FAIL',
   authCheckTimeout: 'AUTH::CHECK:TIMEOUT',
   authInitiateLogout:'AUTH::INITIATE:LOGOUT',
   authLogout: 'AUTH::LOGOUT',
@@ -26,6 +27,13 @@ export const authSuccess = (token, userId) => {
 export const authFail = error => {
   return {
     type: AuthActionTypes.authFail,
+    payload: { error }
+  };
+};
+
+export const signUpFail = error => {
+  return {
+    type: AuthActionTypes.signUpFail,
     payload: { error }
   };
 };
@@ -53,13 +61,6 @@ export const auth = (email, password, isSignup) => {
   return {
     type: AuthActionTypes.authUser,
     payload: { email, password, isSignup }
-  };
-};
-
-export const setAuthRedirectPath = path => {
-  return {
-    type: AuthActionTypes.authSetRedirectPath,
-    payload: { path }
   };
 };
 

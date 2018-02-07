@@ -3,7 +3,7 @@ import { reduxForm } from 'redux-form';
 import { createStructuredSelector } from 'reselect';
 
 import * as authActions from '../actions/auth';
-import { getAuthErrorMessage } from '../selectors/auth';
+import { getSignUpErrorMessage, isAuthDataLoaded } from '../selectors/auth';
 
 import SignUp from '../components/Auth/SignUp';
 
@@ -18,7 +18,8 @@ const validateCreateAccount = values => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  errorMessage: getAuthErrorMessage,
+  errorMessage: getSignUpErrorMessage,
+  loading: isAuthDataLoaded,
 });
 
 const signUpFormContainer = reduxForm({

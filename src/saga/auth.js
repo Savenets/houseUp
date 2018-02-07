@@ -1,8 +1,9 @@
-import { takeEvery, put } from "redux-saga/effects";
-import { delay } from "redux-saga";
-import axios from "axios";
+import { takeEvery, put } from 'redux-saga/effects';
+import { delay } from 'redux-saga';
+import axios from 'axios';
 
-import * as actions from "../actions/auth";
+import appActions from '../actions/app';
+import * as actions from '../actions/auth';
 import { firebaseApi } from '../constants/api';
 
 function* logoutSaga(action) {
@@ -10,6 +11,7 @@ function* logoutSaga(action) {
   yield localStorage.removeItem("expirationDate");
   yield localStorage.removeItem("userId");
   yield put(actions.logoutSucceed());
+  yield put(appActions.eraseReducers());
 }
 
 function* checkAuthTimeoutSaga(action) {
@@ -39,8 +41,8 @@ function* authUserSaga(action) {
     yield put(actions.authSuccess(response.data.idToken, response.data.localId));
     yield put(actions.checkAuthTimeout(response.data.expiresIn));
   } catch (error) {
-
-    yield put(actions.authFail(error.response.data.error.message));
+    !action.payload.isSignup ? yield put(actions.authFail(error.response.data.error.message))
+                             : yield put(actions.signUpFail(error.response.data.error.message))
   }
 }
 

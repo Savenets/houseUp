@@ -1,14 +1,23 @@
 import { AuthActionTypes } from '../actions/auth';
+import { AppActionTypes } from '../actions/app';
 
 const initialState = {
   token: null,
   userId: null,
   error: null,
+  signUpError: null,
   loading: false,
   authRedirectPath: '/'
 };
 
 export default function authReducer( state = initialState, action ) {
+  switch ( action.type ) {
+    case AppActionTypes.eraseReducers: {
+      return {
+        ...state,
+      }
+    }
+  }
   switch ( action.type ) {
     case AuthActionTypes.authStart: {
       return {
@@ -30,6 +39,13 @@ export default function authReducer( state = initialState, action ) {
       return {
         ...state,
         error: action.payload.error,
+        loading: false,
+      }
+    }
+    case AuthActionTypes.signUpFail: {
+      return {
+        ...state,
+        signUpError: action.payload.error,
         loading: false,
       }
     }
