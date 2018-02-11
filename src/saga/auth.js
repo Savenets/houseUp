@@ -15,7 +15,6 @@ function* logoutSaga(action) {
 }
 
 function* checkAuthTimeoutSaga(action) {
-  console.log(action);
   yield delay(action.payload.expirationTime * 1000);
   yield put(actions.logout());
 }

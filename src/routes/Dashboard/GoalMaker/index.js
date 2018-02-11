@@ -1,3 +1,1 @@
-/**
- * Created by rosedale on 2/11/18.
- */
+export default from './GoalMaker';
