@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Drawer from './Drawer';
 
-import { titleWrapper, titleWrapperLoggedIn, title, drawerMenu } from './DrawerMenu.css';
+import { titleWrapper, titleWrapperLoggedIn, title, drawerMenu, navItem } from './DrawerMenu.css';
 
 const style = {
   copyrightWithLogo: {
@@ -30,6 +31,9 @@ class DrawerMenu extends Component {
       >
         <div className={drawerMenu}>
           <h4 className={title}>HouseUp your future with our help!</h4>
+          <Link className={navItem} to="/dashboard/dashboard">Dashboard</Link>
+          <Link className={navItem} to="/dashboard/goal-maker">Make a goal</Link>
+          <Link className={navItem} to="/dashboard/reports">Reports</Link>
         </div>
       </Drawer>
     );
