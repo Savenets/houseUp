@@ -1,12 +1,11 @@
-import { AuthActionTypes } from '../actions/auth';
+import { GoalsActionTypes } from '../actions/goals';
 import { AppActionTypes } from '../actions/app';
 
 const initialState = {
-  token: null,
-  userId: null,
+  goals: null,
   error: null,
-  signUpError: null,
   loading: false,
+  goalsInitial: [],
 };
 
 export default function authReducer( state = initialState, action ) {
@@ -16,43 +15,41 @@ export default function authReducer( state = initialState, action ) {
         ...state,
       }
     }
-    case AuthActionTypes.authStart: {
+    case GoalsActionTypes.goalsFetchStart: {
       return {
         ...state,
         error: null,
         loading: true,
       }
     }
-    case AuthActionTypes.authSuccess: {
+    case GoalsActionTypes.goalsFetchSuccess: {
       return {
         ...state,
-        token: action.payload.token,
-        userId: action.payload.userId,
+        goals: action.payload.goals,
         error: null,
         loading: false,
       }
     }
-    case AuthActionTypes.authFail: {
+    case GoalsActionTypes.goalsFetchFail: {
       return {
         ...state,
         error: action.payload.error,
         loading: false,
       }
     }
-    case AuthActionTypes.signUpFail: {
+    case GoalsActionTypes.goalSet: {
+      const goal = action.payload.goal;
       return {
         ...state,
-        signUpError: action.payload.error,
-        loading: false,
+        goalsInitial: [...state.goalsInitial, goal],
       }
     }
-    case AuthActionTypes.authLogout: {
-      return {
-        ...state,
-        token: null,
-        userId: null,
-      }
+    case GoalsActionTypes.goalRemove: {
+    return {
+      ...state,
+      goalsInitial: state.goalsInitial.filter(item => item.id !== action.payload.id),
     }
+  }
     default:
       return state;
   }

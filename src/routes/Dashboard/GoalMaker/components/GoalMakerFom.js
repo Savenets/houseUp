@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 
 import GoalMakerFormContent from './GoalMakerFormContent';
 import GoalMakerForActions from './GoalMakerForActions';
+import GoalList from './GoalList';
 
-const GoalMakerFom = ({ handleSubmit, invalid, submitting, loading, errorMessage }) => (
+const GoalMakerFom = ({ handleSubmit, invalid, submitting, errorMessage, handleAddGoal, goals, handleRemove }) => (
   <form noValidate onSubmit={handleSubmit}>
-    <GoalMakerFormContent />
+    <GoalMakerFormContent handleAddGoal={handleAddGoal} />
+    { goals &&  <GoalList handleRemove={handleRemove} goals={goals} />}
     <GoalMakerForActions
       submitting={submitting}
       invalid={invalid}
@@ -16,6 +18,8 @@ const GoalMakerFom = ({ handleSubmit, invalid, submitting, loading, errorMessage
 
 GoalMakerFom.defaultProps = {
   errorMessage: null,
+  goals: null,
+  handleRemove: null,
 };
 
 GoalMakerFom.propTypes = {
@@ -23,7 +27,9 @@ GoalMakerFom.propTypes = {
   submitting: PropTypes.bool.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   errorMessage: PropTypes.string,
-  loading: PropTypes.bool.isRequired,
+  handleAddGoal: PropTypes.func.isRequired,
+  goals: PropTypes.array,
+  handleRemove: PropTypes.func,
 };
 
 export default GoalMakerFom;

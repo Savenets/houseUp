@@ -8,7 +8,6 @@ export const AuthActionTypes = {
   authCheckTimeout: 'AUTH::CHECK:TIMEOUT',
   authInitiateLogout:'AUTH::INITIATE:LOGOUT',
   authLogout: 'AUTH::LOGOUT',
-  authSetRedirectPath: 'AUTH::SET:REDIRECT:PATH',
 };
 
 export const authStart = () => {
@@ -20,7 +19,7 @@ export const authStart = () => {
 export const authSuccess = (token, userId) => {
   return {
     type: AuthActionTypes.authSuccess,
-    payload: {token, userId}
+    payload: { token, userId }
   };
 };
 
