@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TextField } from 'redux-form-material-ui';
+import { TextField, DatePicker } from 'redux-form-material-ui';
 import { Field } from 'redux-form';
 import RaisedButton from 'material-ui/RaisedButton';
 import { ValidationErrorMessages as validation } from '../../../../helpers/validation';
@@ -9,7 +9,7 @@ import { goalAddWrapper } from './GoalMakerFormContent.css';
 
 const styles = {
   goalsItemStyle: {
-    minWidth: 486
+    minWidth: '60%',
   },
   buttonStyles: {
     height: 56,
@@ -17,8 +17,7 @@ const styles = {
   },
 };
 
-
-const GoalMakerFormContent = ({ handleAddGoal }) => (
+const GoalMakerFormContent = ({ handleAddGoal, disabled }) => (
   <div>
     <div >
       <Field
@@ -47,15 +46,25 @@ const GoalMakerFormContent = ({ handleAddGoal }) => (
         id="goalsItemsAdd"
         name="goalsItemsAdd"
         floatingLabelText="Add Goal"
-        type="text"
         style={styles.goalsItemStyle}
         component={TextField}
+      />
+      <Field
+        id="goalDate"
+        name="goalDate"
+        type="text"
+        autoOk
+        minDate={new Date()}
+        floatingLabelText="Due Date"
+        format={null}
+        component={DatePicker}
       />
       <RaisedButton
         label="add item to list"
         type="button"
         style={styles.buttonStyles}
         onClick={handleAddGoal}
+        disabled={disabled}
         primary
       />
     </div>
@@ -64,7 +73,7 @@ const GoalMakerFormContent = ({ handleAddGoal }) => (
 
 GoalMakerFormContent.propTypes = {
   handleAddGoal: PropTypes.func.isRequired,
+  disabled: PropTypes.bool.isRequired,
 };
-
 
 export default GoalMakerFormContent;

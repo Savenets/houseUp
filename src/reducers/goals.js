@@ -2,17 +2,25 @@ import { GoalsActionTypes } from '../actions/goals';
 import { AppActionTypes } from '../actions/app';
 
 const initialState = {
-  goals: null,
   error: null,
   loading: false,
   goalsInitial: [],
+  goals: [],
+  goalsPost: false,
 };
 
-export default function authReducer( state = initialState, action ) {
-  switch ( action.type ) {
+export default function authReducer(state = initialState, action) {
+  switch (action.type) {
     case AppActionTypes.eraseReducers: {
       return {
         ...state,
+      }
+    }
+    case GoalsActionTypes.goalsFetch: {
+      return {
+        ...state,
+        error: null,
+        loading: true,
       }
     }
     case GoalsActionTypes.goalsFetchStart: {
@@ -45,11 +53,37 @@ export default function authReducer( state = initialState, action ) {
       }
     }
     case GoalsActionTypes.goalRemove: {
-    return {
-      ...state,
-      goalsInitial: state.goalsInitial.filter(item => item.id !== action.payload.id),
+      return {
+        ...state,
+        goalsInitial: state.goalsInitial.filter(item => item.id !== action.payload.id),
+      }
     }
-  }
+    case GoalsActionTypes.goalPostInit: {
+      return {
+        ...state,
+        goalsPost: false,
+      }
+    }
+    case GoalsActionTypes.goalPostStart: {
+      return {
+        ...state,
+        loading: true,
+      }
+    }
+    case GoalsActionTypes.goalPostSuccess: {
+      return {
+        ...state,
+        loading: false,
+        goalsPost: true,
+        goals: action.payload.goals,
+      }
+    }
+    case GoalsActionTypes.goalPostFail: {
+      return {
+        ...state,
+        loading: false,
+      }
+    }
     default:
       return state;
   }

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
 
-import Home from './Home';
+import Home from './Home/conatiners/DashboardHomeContainer';
 import GoalMaker from './GoalMaker';
 
 const  Auth = ({ match: { url } }) => (

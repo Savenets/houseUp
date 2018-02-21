@@ -3,11 +3,24 @@
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid gray;
+  border: 1px solid olivedrab;
+  border-radius: 4px;
   margin: 8px 0;
   padding: 8px;
 }
 
+.actions {
+  color:red;
+  display: flex;
+  align-items: center;
+}
+
+.date {
+  font-size: 1.4rem;
+}
+
 .itemDescription {
-  font-size:24px;
+  font-size: 1.6rem;
+  flex-grow: 1;
+  flex-basis: 344px;
 }

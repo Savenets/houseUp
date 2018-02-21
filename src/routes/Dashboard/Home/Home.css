@@ -1,5 +1,5 @@
-@value accentText from "../../styles/colors.css";
-@value headline, subheading from "../../styles/typography.css";
+@value accentText from "../../../styles/colors.css";
+@value headline, subheading from "../../../styles/typography.css";
 
 
 .title {
