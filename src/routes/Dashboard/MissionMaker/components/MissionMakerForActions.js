@@ -7,13 +7,13 @@ const buttonStyles = {
   margin: '16px 0',
 };
 
-const GoalMakerForActions = ({ invalid, submitting }) => {
+const missionMakerForActions = ({ invalid, submitting }) => {
 
   return (
     <div>
       <RaisedButton
         disabled={invalid || submitting}
-        label="make a goal"
+        label="make a mission"
         type="submit"
         style={buttonStyles}
         fullWidth
@@ -23,10 +23,10 @@ const GoalMakerForActions = ({ invalid, submitting }) => {
   );
 };
 
-GoalMakerForActions.propTypes = {
+missionMakerForActions.propTypes = {
   invalid: PropTypes.bool.isRequired,
   submitting: PropTypes.bool.isRequired,
 };
 
-export default GoalMakerForActions;
+export default missionMakerForActions;
 

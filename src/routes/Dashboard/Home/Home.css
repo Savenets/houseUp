@@ -11,6 +11,11 @@
   text-align: center;
 }
 
+.description {
+  color: accentText;
+  composes: subheading;
+}
+
 .list {
   composes: subheading;
   list-style: decimal !important;

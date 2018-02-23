@@ -5,10 +5,10 @@ import { Field } from 'redux-form';
 import RaisedButton from 'material-ui/RaisedButton';
 import { ValidationErrorMessages as validation } from '../../../../helpers/validation';
 
-import { goalAddWrapper } from './GoalMakerFormContent.css';
+import { missionAddWrapper } from './MissionMakerFormContent.css';
 
 const styles = {
-  goalsItemStyle: {
+  missionsItemStyle: {
     minWidth: '60%',
   },
   buttonStyles: {
@@ -17,21 +17,21 @@ const styles = {
   },
 };
 
-const GoalMakerFormContent = ({ handleAddGoal, disabled }) => (
+const missionMakerFormContent = ({ handleAddmission, disabled }) => (
   <div>
     <div >
       <Field
-        id="goalName"
-        name="goalName"
-        floatingLabelText="Lets make it a goal Title"
+        id="missionName"
+        name="missionName"
+        floatingLabelText="Lets make it a mission Title"
         type="text"
         fullWidth
         validate={[validation.required]}
         component={TextField}
       />
       <Field
-        id="goalMakerDescription"
-        name="goalMakerDescription"
+        id="missionMakerDescription"
+        name="missionMakerDescription"
         floatingLabelText="Descriptions"
         multiLine
         fullWidth
@@ -41,17 +41,17 @@ const GoalMakerFormContent = ({ handleAddGoal, disabled }) => (
         component={TextField}
       />
     </div>
-    <div className={goalAddWrapper}>
+    <div className={missionAddWrapper}>
       <Field
-        id="goalsItemsAdd"
-        name="goalsItemsAdd"
-        floatingLabelText="Add Goal"
-        style={styles.goalsItemStyle}
+        id="missionsItemsAdd"
+        name="missionsItemsAdd"
+        floatingLabelText="Add mission"
+        style={styles.missionsItemStyle}
         component={TextField}
       />
       <Field
-        id="goalDate"
-        name="goalDate"
+        id="missionDate"
+        name="missionDate"
         type="text"
         autoOk
         minDate={new Date()}
@@ -63,7 +63,7 @@ const GoalMakerFormContent = ({ handleAddGoal, disabled }) => (
         label="add item to list"
         type="button"
         style={styles.buttonStyles}
-        onClick={handleAddGoal}
+        onClick={handleAddmission}
         disabled={disabled}
         primary
       />
@@ -71,9 +71,9 @@ const GoalMakerFormContent = ({ handleAddGoal, disabled }) => (
   </div>
 );
 
-GoalMakerFormContent.propTypes = {
-  handleAddGoal: PropTypes.func.isRequired,
+missionMakerFormContent.propTypes = {
+  handleAddmission: PropTypes.func.isRequired,
   disabled: PropTypes.bool.isRequired,
 };
 
-export default GoalMakerFormContent;
+export default missionMakerFormContent;

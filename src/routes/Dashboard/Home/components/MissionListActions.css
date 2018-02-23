@@ -1,0 +1,8 @@
+.actionsWrapper {
+  display: flex;
+  margin: 16px 0 8px;
+}
+
+.button {
+  margin-right: 8px;
+}

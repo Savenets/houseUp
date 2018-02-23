@@ -31,7 +31,7 @@ const Home = () => {
       <Paper style={styles.paperStyle} zDepth={4}>
         <h2>Ready to start?</h2>
         <ol className={list}>
-          <li>Set up your goal and make a short description</li>
+          <li>Set up your mission and make a short description</li>
           <li>Describe in details the work to be done to proceed immediately</li>
           <li>Set up steps and make a short description of it</li>
           <li>Make a list of materials and tools required, provide its price</li>
@@ -42,7 +42,7 @@ const Home = () => {
             style={styles.buttonStyles}
             fullWidth
             primary
-            label="Make your goal now"
+            label="Make your mission now"
           />
         </Link>
       </Paper>

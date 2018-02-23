@@ -1,22 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Paper from 'material-ui/Paper';
-import RaisedButton from 'material-ui/RaisedButton';
+import moment from 'moment-timezone';
 
-import { goalWrapper, goalName, description } from './GoalListItem.css';
+import { taskWrapper, taskName, dueDate, enumeration } from './TasklListItem.css';
 
-const TasklListItem = ({ task }) => {
+const TasklListItem = ({ task, order }) => {
 
   return (
     <div className={taskWrapper}>
-      <h3 className={taskName}>{task.title}</h3>
-      <p className={description}>{task.dueDate}</p>
+      <p className={taskName}>
+        <span className={enumeration}>{order}</span>{task.mission}
+      </p>
+      <span className={dueDate}>Due date: {moment(task.dueDate).format('MMM DD YYYY')}</span>
     </div>
   );
 };
 
 TasklListItem.propTypes = {
   task: PropTypes.shape().isRequired,
+  order: PropTypes.number.isRequired,
 };
 
 export default TasklListItem;

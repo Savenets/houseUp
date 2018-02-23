@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
 
 import Home from './Home/conatiners/DashboardHomeContainer';
-import GoalMaker from './GoalMaker';
+import MissionMaker from './MissionMaker';
 
 const  Dashboard = ({ match: { url } }) => (
   <Switch>
     <Route exact path={`${url}/`} component={Home} />
-    <Route exact path={`${url}/goal-maker`} component={GoalMaker} />
+    <Route exact path={`${url}/mission-maker`} component={MissionMaker} />
   </Switch>
 );
 

@@ -1,33 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import GoalList from './components/GoalsList';
+import MissionList from './components/MissionsList';
 import Spinner from '../../../components/Spinner';
 
-import { title, homeContainer, list } from './Home.css';
+import { title, homeContainer, list, description } from './Home.css';
 
 class Home extends React.Component {
 
   componentDidMount() {
-    this.props.fetchGoals();
+    this.props.fetchMissions();
   }
 
   render () {
-    const { goals, loading } = this.props;
+    const { missions, loading } = this.props;
 
     return (
       <div className={homeContainer}>
-        <h1 className={title}>Welcome!</h1>
-        <p>This is your board you can view your progress here</p>
-        {goals &&  <GoalList goals={goals} />}
+        <h1 className={title}>Welcome to your board!</h1>
+        <p className={description}>This is the place your home building missions to covered</p>
+        {missions &&  <MissionList missions={missions} />}
         {loading && <Spinner />}
       </div>
     );
   }
 }
 
+Home.defaultProps = {
+  missions: [],
+};
+
 Home.propTypes = {
-  fetchGoals: PropTypes.func.isRequired,
-  goals: PropTypes.array.isRequired,
+  fetchMissions: PropTypes.func.isRequired,
+  missions: PropTypes.array,
   loading: PropTypes.bool.isRequired,
 };
 

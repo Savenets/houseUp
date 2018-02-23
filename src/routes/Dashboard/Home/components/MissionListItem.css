@@ -1,0 +1,18 @@
+.missionWrapper {
+  margin: 8px;
+  padding: 24px;
+  max-width: 648px;
+}
+
+.description {
+  text-align: justify;
+  margin: 8px 0;
+}
+
+.missionName {
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-align: left;
+  margin: 16px 0;
+
+}

@@ -34,7 +34,7 @@ class DrawerMenu extends Component {
         <div className={drawerMenu}>
           <h4 className={title}>HouseUp your future with our help!</h4>
           <Link className={navItem} to="/dashboard">Dashboard</Link>
-          <Link className={navItem} to="/dashboard/goal-maker">Make a goal</Link>
+          <Link className={navItem} to="/dashboard/mission-maker">Make a mission</Link>
           <Link className={navItem} to="/dashboard/reports">Reports</Link>
         </div>
       </Drawer>

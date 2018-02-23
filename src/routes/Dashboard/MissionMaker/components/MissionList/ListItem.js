@@ -8,7 +8,7 @@ import { itemWrapper, itemDescription, date, actions } from './ListItem.css';
 
 const ListItem = ({ item, handleRemove }) => (
   <li className={itemWrapper}>
-    <p className={itemDescription}>{item.goal}</p>
+    <p className={itemDescription}>{item.mission}</p>
     <div className={actions}>
       <span className={date}>{moment(item.dueDate).format('MMM DD YYYY')}</span>
       <IconButton onClick={() => handleRemove(item.id)}>

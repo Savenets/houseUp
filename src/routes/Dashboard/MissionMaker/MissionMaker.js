@@ -1,8 +1,8 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
-import GoalMakerContainer from './containers/GoalMakerContainer';
+import MissionMakerContainer from './containers/MissionMakerContainer';
 
-import { goalMakerContainer, title } from './GoalMaker.css';
+import { missionMakerContainer, title } from './MissionMaker.css';
 
 const styles = {
   paperStyle: {
@@ -19,16 +19,16 @@ const styles = {
   },
 };
 
-const GoalMaker = () => {
+const missionMaker = () => {
   return (
-    <div className={goalMakerContainer}>
-      <h1 className={title}>Set up your home building next goal</h1>
+    <div className={missionMakerContainer}>
+      <h1 className={title}>Set up your home building next mission</h1>
       <Paper style={styles.paperStyle} zDepth={4}>
-        <GoalMakerContainer />
+        <MissionMakerContainer />
       </Paper>
     </div>
   );
 };
 
-export default GoalMaker;
+export default missionMaker;
 

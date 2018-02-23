@@ -2,12 +2,12 @@ import { spawn, all } from 'redux-saga/effects';
 
 import appWorker from './app';
 import watchAuth from './auth';
-import watchGoals from './goals';
+import watchmissions from './missions';
 
 export default function* root() {
   yield all([
     spawn(appWorker),
     spawn(watchAuth),
-    spawn(watchGoals),
+    spawn(watchmissions),
   ]);
 }

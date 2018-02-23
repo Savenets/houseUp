@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { goalsFetch } from '../../../../actions/goals';
-import { loading, goals } from '../../../../selectors/goals';
+import { missionsFetch } from '../../../../actions/missions';
+import { loading, missions } from '../../../../selectors/missions';
 import { token, userId, } from '../../../../selectors/auth';
 
 import Home from '../Home';
@@ -11,22 +11,22 @@ const mapStateToProps = createStructuredSelector({
   token,
   userId,
   loading,
-  goals,
+  missions,
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchGoals: (token, userId) => {
-    dispatch(goalsFetch(token, userId));
+  fetchMissions: (token, userId) => {
+    dispatch(missionsFetch(token, userId));
   },
   handleRemove(id) {
-    //dispatch(goalRemove(id));
+    //dispatch(missionRemove(id));
   },
 });
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => ({
   ...stateProps, ...dispatchProps, ...ownProps,
-  fetchGoals() {
-    dispatchProps.fetchGoals(stateProps.token, stateProps.userId);
+  fetchMissions() {
+    dispatchProps.fetchMissions(stateProps.token, stateProps.userId);
   },
 });
 

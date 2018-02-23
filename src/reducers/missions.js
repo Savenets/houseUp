@@ -1,83 +1,83 @@
-import { GoalsActionTypes } from '../actions/goals';
+import { MissionsActionTypes } from '../actions/missions';
 import { AppActionTypes } from '../actions/app';
 
 const initialState = {
   error: null,
   loading: false,
-  goalsInitial: [],
-  goals: [],
-  goalsPost: false,
+  missionsInitial: [],
+  targets: [],
+  missionPost: false,
 };
 
-export default function authReducer(state = initialState, action) {
+export default function missionReducer(state = initialState, action) {
   switch (action.type) {
     case AppActionTypes.eraseReducers: {
       return {
         ...state,
       }
     }
-    case GoalsActionTypes.goalsFetch: {
+    case MissionsActionTypes.missionsFetch: {
       return {
         ...state,
         error: null,
         loading: true,
       }
     }
-    case GoalsActionTypes.goalsFetchStart: {
+    case MissionsActionTypes.missionsFetchStart: {
       return {
         ...state,
         error: null,
         loading: true,
       }
     }
-    case GoalsActionTypes.goalsFetchSuccess: {
+    case MissionsActionTypes.missionsFetchSuccess: {
       return {
         ...state,
-        goals: action.payload.goals,
+        missions: action.payload.missions,
         error: null,
         loading: false,
       }
     }
-    case GoalsActionTypes.goalPostSuccess: {
+    case MissionsActionTypes.missionPostSuccess: {
       return {
         ...state,
         loading: false,
-        goalsPost: true,
+        missionPost: true,
       }
     }
-    case GoalsActionTypes.goalsFetchFail: {
+    case MissionsActionTypes.missionsFetchFail: {
       return {
         ...state,
         error: action.payload.error,
         loading: false,
       }
     }
-    case GoalsActionTypes.goalSet: {
-      const goal = action.payload.goal;
+    case MissionsActionTypes.missionSet: {
+      const mission = action.payload.mission;
       return {
         ...state,
-        goalsInitial: [...state.goalsInitial, goal],
+        missionsInitial: [...state.missionsInitial, mission],
       }
     }
-    case GoalsActionTypes.goalRemove: {
+    case MissionsActionTypes.missionRemove: {
       return {
         ...state,
-        goalsInitial: state.goalsInitial.filter(item => item.id !== action.payload.id),
+        missionsInitial: state.missionsInitial.filter(item => item.id !== action.payload.id),
       }
     }
-    case GoalsActionTypes.goalPostInit: {
+    case MissionsActionTypes.missionPostInit: {
       return {
         ...state,
-        goalsPost: false,
+        missionsPost: false,
       }
     }
-    case GoalsActionTypes.goalPostStart: {
+    case MissionsActionTypes.missionPostStart: {
       return {
         ...state,
         loading: true,
       }
     }
-    case GoalsActionTypes.goalPostFail: {
+    case MissionsActionTypes.missionPostFail: {
       return {
         ...state,
         loading: false,
