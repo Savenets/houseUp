@@ -10,11 +10,12 @@ const drawerStyle = {
   },
 };
 
-const Drawer = ({ isOpen, onRequestChange, children }) => (
+const Drawer = ({ isOpen, onRequestChange, children, onRequestClose }) => (
   <MaterialDrawer
     docked={false}
     open={isOpen}
     onRequestChange={onRequestChange}
+    onRequestClose={onRequestClose}
     {...drawerStyle}
   >
     {children}
@@ -25,6 +26,7 @@ Drawer.propTypes = {
   children: PropTypes.node.isRequired,
   isOpen: PropTypes.bool.isRequired,
   onRequestChange: PropTypes.func.isRequired,
+  onRequestClose: PropTypes.func.isRequired,
 };
 
 export default Drawer;

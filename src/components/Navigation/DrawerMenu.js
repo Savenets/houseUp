@@ -14,6 +14,7 @@ const style = {
 class DrawerMenu extends Component {
 
   requestClose = () => {
+
     const { onRequestClose } = this.props;
 
     if (onRequestClose) {
@@ -27,6 +28,7 @@ class DrawerMenu extends Component {
     return (
       <Drawer
         isOpen={isOpen}
+        onRequestClose={this.requestClose}
         onRequestChange={onRequestChange}
       >
         <div className={drawerMenu}>

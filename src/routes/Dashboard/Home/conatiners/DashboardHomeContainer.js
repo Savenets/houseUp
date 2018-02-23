@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import { goalsFetch } from '../../../../actions/goals';
-import { getGoalsInitial, loading, goals } from '../../../../selectors/goals';
+import { loading, goals } from '../../../../selectors/goals';
 import { token, userId, } from '../../../../selectors/auth';
 
 import Home from '../Home';
@@ -29,6 +29,5 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => ({
     dispatchProps.fetchGoals(stateProps.token, stateProps.userId);
   },
 });
-
 
 export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(Home);

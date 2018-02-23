@@ -14,7 +14,7 @@ const GoalsList = ({ goals }) => {
 };
 
 GoalsList.propTypes = {
-  goals: PropTypes.shape().isRequired,
+  goals: PropTypes.array.isRequired,
 };
 
 export default GoalsList;

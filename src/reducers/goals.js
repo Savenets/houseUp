@@ -38,6 +38,13 @@ export default function authReducer(state = initialState, action) {
         loading: false,
       }
     }
+    case GoalsActionTypes.goalPostSuccess: {
+      return {
+        ...state,
+        loading: false,
+        goalsPost: true,
+      }
+    }
     case GoalsActionTypes.goalsFetchFail: {
       return {
         ...state,
@@ -68,14 +75,6 @@ export default function authReducer(state = initialState, action) {
       return {
         ...state,
         loading: true,
-      }
-    }
-    case GoalsActionTypes.goalPostSuccess: {
-      return {
-        ...state,
-        loading: false,
-        goalsPost: true,
-        goals: action.payload.goals,
       }
     }
     case GoalsActionTypes.goalPostFail: {

@@ -6,7 +6,7 @@ import uniqueId from 'uniqid';
 
 import { goalSet, goalRemove, goalPost } from '../../../../actions/goals';
 import { getGoalsInitial, loading } from '../../../../selectors/goals';
-import { token } from '../../../../selectors/auth';
+import { token, userId } from '../../../../selectors/auth';
 
 import GoalMakerFom from '../components/GoalMakerFom';
 
@@ -17,8 +17,9 @@ const mapStateToProps = createStructuredSelector({
   goalDueDate: state => formSelector(state, 'goalDate'),
   goalAdding: state => formSelector(state, 'goalsItemsAdd'),
   goals: getGoalsInitial,
-  token: token,
-  loading: loading,
+  token,
+  userId,
+  loading,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -37,10 +38,14 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => ({
   handleAddGoal() {
     dispatchProps.handleAddGoal(stateProps.goalAdding, stateProps.goalDueDate);
   },
-  onSubmit(data, dispatch) {
-    const postData = {...data, goals: stateProps.goals};
+  async onSubmit(data, dispatch) {
+    const { goalName, goalMakerDescription } = data;
+    const postData = {goalName, goalMakerDescription, userId: stateProps.userId, goals: stateProps.goals};
     dispatch(goalPost(postData, stateProps.token));
-    dispatch(push('/dashboard'));
+    await new Promise(resolve => setTimeout(resolve, 200)); // We need this delay to make sure that Firebase Client puts data first before so to retrive fresh data
+    dispatch(push({
+      pathname: '/dashboard',
+    }));
   },
   disabled: !(stateProps.goalAdding && stateProps.goalDueDate)
 });
