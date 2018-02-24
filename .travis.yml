@@ -10,7 +10,7 @@ script:
   - npm test
 after_success:
   - npm run build
-  - firebase deploy --project "houseup-b7cc7" --token $FIREBASE_TOKEN
+  - firebase deploy --project $HOUSEUP --token $FIREBASE_TOKEN
 branches:
   only:
     - master
