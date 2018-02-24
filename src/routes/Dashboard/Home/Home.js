@@ -16,7 +16,7 @@ class Home extends React.Component {
 
     return (
       <div className={homeContainer}>
-        <h1 className={title}>Welcome to your board!</h1>
+        <h1 className={title}>Check your board!</h1>
         <p className={description}>This is the place your home building missions to covered</p>
         {missions &&  <MissionList missions={missions} />}
         {loading && <Spinner />}
