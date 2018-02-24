@@ -1,13 +1,9 @@
 language: node_js
 node_js:
-  - "8.9"
+  -"8.9"
 script:
-  - echo "Deploying!!!"
+  -echo "Deploying!!!"
 install:
-  - npm install -g firebase-tools
+  -npm install -g firebase-tools
 after_success:
- deploy:
-   provider: firebase
-   token:
-     secure: "cCFxmN/XjtDi9gToM7Eg/vuTyuU3BPYb4gntBxoJ903sThlzWtG81tMxDaPzLif6oz8/4LYwGD4mwQmxVe2E6yGJFOGiY3beSUSD3+vfQttIgV6oxf6mz/Cx1xHxhCqqwzZNpf1S/tD8JDEUJ/RfoH6vMYO9op+o+q5gKJ0mpHIjklLcgYXnni2T3pYqqRXY7VXqZIMjoeztd/eL5ow1WzmfoH6DzjOHT3QXjGnYFesDa69ycSWXWz6Qy+xhsafNQhATN6LDck2iktqc8AB6yaym62eMR6Gj0E6W06Cuw7Wf8J8pMbUsiIyBKYYZUV/PEE7pdGtpSnZaksqk6iyyO4rtOqsiDV10hw1h6ktO4EDZW03rRm7MbfZMwKZbmhq04wNYVt+HfzHpfg2eQmqrwBWfD2090+bbaX8EQ+tZv4fEPCr+WW7QEMYPTkcI2d1xsCPDx925QPxyQ1CoFw1+2freljWbJ0AoWD6sv1tVDir6X5XW+U1ZPd7MUF/P2w4bJrZl7UpkGgnitf4Gb1yyFTZYoBhyTwblScPCISI/AYVtFl/o1BRoPBRtp2bLVOmuUobnKmm8deQw7G1v+/urOwFJ0J+LzirKR30L+rkye7+8SaQeDK8dPrFPJIK53O3/sayiKnOTYDkd1x8dqJ53zXXtd7y+hWyVbBwqXmtJvnY="
-   project: "houseUp"﻿
+  -firebase deploy --project $PROJECT_ID --token $FIREBASE_TOKEN﻿
