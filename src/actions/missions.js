@@ -9,7 +9,6 @@ export const MissionsActionTypes = {
   missionPostStart: 'MISSIONS:POST::START',
   missionPostSuccess: 'MISSIONS:POST::SUCCESS',
   missionPostFail: 'MISSIONS:POST::FAIL',
-  missionPostInit: 'MISSIONS:POST::INIT',
   missionPost: 'MISSIONS:POST::INIT',
 };
 

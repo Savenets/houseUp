@@ -16,7 +16,7 @@ const paperStyle = {
 const LoginForm = ({ handleSubmit, invalid, submitting, loading, errorMessage }) => (
   <div className={paperContent}>
     <h1>Log in</h1>
-    { errorMessage && <span className={error}> ERROR: {errorMessage}</span> }
+    { errorMessage && <span className={error}>ERROR: {errorMessage}</span> }
     <Paper style={paperStyle} zDepth={1}>
       <form noValidate onSubmit={handleSubmit}>
         <LoginFormContent />

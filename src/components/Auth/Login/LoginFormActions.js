@@ -31,7 +31,6 @@ const LoginFormActions = ({ invalid, submitting }) => {
           label="signup"
         />
       </Link>
-      {/*<Link to="auth/forgot-password"><span className={link}>Forgot Password?</span></Link>*/}
     </div>
   );
 };

@@ -19,8 +19,8 @@ class Home extends React.Component {
       <div className={homeContainer}>
         <h1 className={title}>Check your board!</h1>
         <p className={description}>This is the place your home building missions to covered</p>
-        {(missions.length <= 0) && <AddMission />}
-        {missions &&  <MissionList missions={missions} />}
+        {missions.length > 0 ? <MissionList missions={missions} />
+                             : <AddMission />}
         {loading && <Spinner />}
       </div>
     );

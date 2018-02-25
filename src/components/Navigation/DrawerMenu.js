@@ -14,9 +14,7 @@ const style = {
 class DrawerMenu extends Component {
 
   requestClose = () => {
-
     const { onRequestClose } = this.props;
-
     if (onRequestClose) {
       onRequestClose();
     }

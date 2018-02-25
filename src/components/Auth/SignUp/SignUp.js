@@ -13,7 +13,7 @@ const paperStyle = {
   maxWidth: 344,
 };
 
-const signupForm = ({ handleSubmit, invalid, submitting, loading, errorMessage }) => (
+const SignUp = ({ handleSubmit, invalid, submitting, loading, errorMessage }) => (
   <div className={paperContent}>
     <h1>Please fill out the form to register</h1>
     { errorMessage && <span className={error}>OLA-L-A-A L-A-AA! {errorMessage}</span> }
@@ -30,11 +30,11 @@ const signupForm = ({ handleSubmit, invalid, submitting, loading, errorMessage }
   </div>
 );
 
-signupForm.defaultProps = {
+SignUp.defaultProps = {
   errorMessage: null,
 };
 
-signupForm.propTypes = {
+SignUp.propTypes = {
   invalid: PropTypes.bool.isRequired,
   submitting: PropTypes.bool.isRequired,
   handleSubmit: PropTypes.func.isRequired,
@@ -42,4 +42,4 @@ signupForm.propTypes = {
   loading: PropTypes.bool.isRequired,
 };
 
-export default signupForm;
+export default SignUp;

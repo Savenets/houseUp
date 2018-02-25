@@ -17,7 +17,7 @@ const mapStateToProps = createStructuredSelector({
 const loginFormContainer = reduxForm({
   form: formName,
   onSubmit: (form, dispatch) => {
-    const { email, password, fullName } = form;
+    const { email, password } = form;
     const isSignup = false;
     dispatch( authActions.auth( email, password, isSignup ));
   },
