@@ -12,7 +12,7 @@ const missionListItem = ({ mission }) => {
     <Paper className={missionWrapper} zDepth={4}>
       <h3 className={missionName}>{mission.missionName}</h3>
       <p className={description}>{mission.missionMakerDescription}</p>
-      <Tasks tasks={mission.missions} />
+      {mission.missions && <Tasks tasks={mission.missions} />}
       <MissionListActions />
     </Paper>
   );

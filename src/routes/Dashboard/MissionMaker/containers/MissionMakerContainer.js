@@ -42,7 +42,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => ({
     const { missionName, missionMakerDescription } = data;
     const postData = {missionName, missionMakerDescription, userId: stateProps.userId, missions: stateProps.missions};
     dispatch(missionPost(postData, stateProps.token));
-    await new Promise(resolve => setTimeout(resolve, 200)); // We need this delay to make sure that Firebase Client puts data first before so to retrive fresh data
+    await new Promise(resolve => setTimeout(resolve, 500)); // We need this delay to make sure that Firebase Client puts data first before so to retrive fresh data
     dispatch(push({
       pathname: '/dashboard',
     }));

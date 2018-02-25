@@ -20,13 +20,8 @@ export const postMissionSaga = function* (action) {
 export const fetchMissionsSaga = function* (action) {
   yield put(missionsFetchStart());
   try {
-    console.log(action.payload.token);
-    console.log(action.payload.userId);
-
     const queryParams = '?auth=' + action.payload.token + '&orderBy="userId"&equalTo="' + action.payload.userId + '"';
     const res = yield axios.get('/missions.json' + queryParams);
-    console.log('user +++++++++++')
-    console.log(res.data)
     const fetchedMissions = [];
     for ( let key in res.data ) {
       fetchedMissions.push( {
@@ -34,9 +29,6 @@ export const fetchMissionsSaga = function* (action) {
         id: key,
       });
     }
-    console.log("=====------d-----d-d")
-    console.log(fetchedMissions)
-
     yield put(missionsFetchSuccess(fetchedMissions));
   } catch (error) {
     put(missionsFetchFail(error));
